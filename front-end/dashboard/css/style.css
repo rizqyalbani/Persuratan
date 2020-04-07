@@ -1,0 +1,135 @@
+html {
+	scroll-behavior: smooth;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.row:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+[class*="col-"]{
+	float: left;
+}
+
+.col-1  {width:8.33%;}
+.col-2  {width:16.66%}
+.col-3  {width:25%;}
+.col-4  {width:33.3%;}
+.col-5  {width:41.66%;}
+.col-6  {width:50%;}
+.col-7  {width:58.33%;}
+.col-8  {width:66.66%;}
+.col-9  {width:75%;}
+.col-10 {width:83.33%;}
+.col-11 {width:91.6%;}
+.col-12 {width:100%;}
+
+
+
+.header {
+	margin: 0;
+	padding: 0;
+}
+
+.bg-menu {
+	height: 70px;
+	border-bottom: 1px solid #ececec;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li {
+	float: right;
+}
+
+.logo {
+	float: left;
+}
+
+.logo img {
+	width: 65px;
+	margin-top: -25px;
+}
+
+nav ul li a {
+	padding: 1.5rem 2rem;
+	display: inline-block;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+}
+
+nav ul li a:hover {
+	color: #ff1a8c;
+}
+
+
+
+#sidebar {
+	position: fixed;
+	margin-top: -190px;
+	width: 300px;
+	height: 100%;
+	background-color: #95afc0;
+	left: -300px;
+	transition: all 500ms linear;
+}
+
+#sidebar.active {
+	left: 0px;
+
+}
+
+#sidebar ul li{
+	color: black;
+	list-style: none;
+	padding: 15px 10px;
+	border-bottom: 2px solid black;
+	text-decoration: none;
+}
+
+#sidebar .toggle-btn {
+	position: absolute;
+	left: 230px;
+	top: 100px;
+}
+
+#sidebar .toggle-btn span {
+	display: block;
+	width: 30px;
+	height: 5px;
+	background: purple;
+	margin: 5px 0px;
+	margin-left: 100px;
+	margin-top: 3px;
+	cursor: pointer;
+}
+
+.isi-dasboard {
+	margin-left: 200px;
+	float: left;
+}
+.tulisan h1{
+	margin-top: 10%;
+	margin-left: 500px;
+}
+.tulisan h3{
+	margin-top: 2px;
+	margin-left: 500px;
+
+}
+

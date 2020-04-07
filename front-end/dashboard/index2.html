@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Desain Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<style type="text/css">
+		body{
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 100vh;
+		}
+		.mumed{
+		margin-top: 10px;
+		float: left;
+		font-size: 40px;
+		font-weight: bold;
+	}
+		
+
+	</style>
+	</style>
+</head>
+<body>
+	<div class="bg-menu">
+				<nav>
+					<ul>
+						<li class="logo"><a href="#"><img src="image/logo skensa.jpg"></a></li>
+						<li class="mumed">Dashboard</li>
+						<li><a href="#"><i class="fa fa-user" ></i></a></li>
+						<li><a href="dasboard.php">Dasboard</a></li>
+						<li><a href="home.php">Home</a></li>
+					</ul>
+				</nav>
+			</div>
+			<section class="tulisan">
+				<h1>SELAMAT DATANG ADMIN</h1>
+				<h3>ini adalah desain dashboard website persuratan</h3>
+			</section>
+
+	<div id="sidebar">
+		<div class="toggle-btn" onclick="toggleSidebar()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<script type="text/javascript">
+			function toggleSidebar(){
+				document.getElementById("sidebar").classList.toggle('active');
+			}
+		</script>
+		<ul>
+			<li><i class="	fa fa-user" style="font-size:36px; margin-right: 15px;"></i>ADMIN</li>
+			<li><a href="#" style="text-decoration: none; color: white">Dashboard</a></li>
+			<li><a href="#" style="text-decoration: none; color: white">Home</a></li>
+			<li><a href="#" style="text-decoration: none; color: white">Surat Keluar</a></li>
+			<li><a href="#" style="text-decoration: none; color: white">Surat Masuk</a></li>
+			<li><a href="#"style="text-decoration: none; color: white">Disposisi</a></li>
+			<li><a href="#"style="text-decoration: none; color: white">Surat Terima</a></li>
+			<li><a href="#"style="text-decoration: none; color: white">Surat Diterima</a></li>
+			<li><a href="#"style="text-decoration: none; color: white">Data Instansi</a></li>
+			
+			<button style="width: 80px; height: 48px; margin-left: 190px; margin-top: 70px;"><a href="logout.php" style="text-decoration: none;">LOGOUT</a></button>
+		</ul>
+	</div>
+
+
+
+</body>
+</html>
