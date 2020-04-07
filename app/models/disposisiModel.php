@@ -125,15 +125,11 @@
             return $this->db->singleResult()['status'];
         }
 
-<<<<<<< HEAD
-
-=======
         public function editDisposisi($id){
             $binded = $id ;
             $this->db->query("SELECT * FROM $this->table WHERE id_surat_masuk = :id");
 
         }
->>>>>>> 2df8cb341ea80a759736f1a48233bc9910122e5c
 
     }
 ?>
