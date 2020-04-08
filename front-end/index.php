@@ -28,7 +28,7 @@
   </div>
  <section>
     <div class="tulisan">
-      <h1>SELAMAT DATANG DI WEBSITE PERSURATAN</h1><br>
+      <h1>SELAMAT DATANG DI WEBSITE PERSURATAN.</h1><br>
       <img src="logo skensa.jpg"><br><br>
       <h3>SMK NEGERI 1 DENPASAR</h3>
     </div>
