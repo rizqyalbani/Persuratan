@@ -289,12 +289,9 @@
             }
         }
 
-<<<<<<< HEAD
-=======
         
         
         
->>>>>>> 092ab8d1943558d4502b061df59c7a5c41e262e9
         //Update surat masuk belom lengkaps
         public function updateSuratMasuk($id){
             
@@ -344,8 +341,6 @@
                 $this->view('admin/updateDisposisi',$data);
                 $this->view('templates/footer',$data);
 
-<<<<<<< HEAD
-=======
             //}
         }
 
@@ -360,6 +355,5 @@
             }
         }
 
->>>>>>> 092ab8d1943558d4502b061df59c7a5c41e262e9
     }
 ?>

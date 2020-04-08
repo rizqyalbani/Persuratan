@@ -17,6 +17,7 @@
     <label for="instruksi">Instruksi</label>
     <input id="instruksi" name="instruksi" type="text" value="<?php echo $data['disposisi'][0]['instruksi'];?>"> <br>
 
+    <!-- fix perihal -->
     <label for="perihal">Perihal</label>
     <!-- input di disabled karena yang punya data itu surat masuk, bukan disposisi -->
     <input id="perihal" name="perihal" type="text" value="<?php echo $data['disposisi'][0]['perihal_surat_masuk'];?>" disabled> <br>
