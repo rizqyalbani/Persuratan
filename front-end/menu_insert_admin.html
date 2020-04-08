@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Insert Admin</title>
+</head>
+	<style>
+  	#card {
+        position: absolute;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+        height: 600px;
+        width: 700px;
+        left: 300px;
+        top: 30px;
+	}
+	body{
+		background:#ADD8E6;
+       	
+	}
+	#card-content {
+      padding: 1px 44px;
+	}
+	#card-title {
+	      font-family: "Raleway Thin", sans-serif;
+	      letter-spacing: 4px;
+	      padding-bottom: 23px;
+	      padding-top: 5px;
+	      text-align: center;
+	      color: #87CEFA;
+	}
+	label {
+	    font-family: "Raleway", sans-serif;
+	    font-size: 11pt;
+	}
+	
+	.form {
+	    align-items: left;
+	    display: flex;
+	    flex-direction: column;
+	}
+	.form-border {
+	    background: #000000;
+	    height: 1px;
+	    width: 50%;
+	}
+	.form-content {
+	    background: #ffffff;
+	    border: none;
+	    outline: none;
+	    padding-top: 14px;
+	}
+	
+	#submit-btn {
+	    background:#87CEFA;
+	    border: none;
+	    border-radius: 21px;
+	    cursor: pointer;
+	    color: white;
+	    font-family: "Raleway SemiBold", sans-serif;
+	    height: 42.3px;
+	    margin: 0 auto;
+	    margin-top: 35px;
+	    transition: 0.25s;
+	    width: 153px;
+	}
+	
+  </style>
+</head>
+<body>
+
+<div id="card">
+ 		<div id="card-content">
+	  		<div id="card-title">
+		    	<h2>Menu Insert</h2>
+	  		</div>  		
+	  	<form method="post" class="form">
+	  	   <div class="row">	
+	  		  <div class="col-8 col-sm-6">
+	  			<label for="admin-tanggal" style="padding-top:13px">&nbsp;Tanggal</label>
+				<input
+				   id="admin-tanggal"
+				   class="form-content"
+				   type="date"
+				   name="tanggal"
+				   autocomplete="on"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-lampiran" style="padding-top:22px">&nbsp;Tanggal Penyelesaian</label>
+				<input
+				   id="admin-lampiran"
+				   class="form-content"
+				   type="date"
+				   name="lampiran"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-no" style="padding-top:22px">&nbsp;No Agenda</label>
+				<input
+				   id="admin-no"
+				   class="form-content"
+				   type="text-align"
+				   name="no agednda"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-perihal" style="padding-top:22px">&nbsp;Perihal</label>
+				<input
+				   id="admin-perihal"
+				   class="form-content"
+				   type="text-align"
+				   name="perihal"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-tanggal" style="padding-top:22px">&nbsp;Instruksi</label>
+				<input
+				   id="admin-instruksi"
+				   class="form-content"
+				   type="text-align"
+				   name="instruksi"
+				   required />
+				<div class="form-border"></div>
+			</div>
+			<!-- </div>
+		<div class="row">	 -->
+			<div>	
+			<div class="col-4 col-sm-6">
+				<label for="admin-jenis" style="padding-top:22px">&nbsp;Jenis Disposisi</label>
+				<input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-jenis" style="padding-top:22px">&nbsp;Surat Dari Instasi</label>
+				<input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-jenis" style="padding-top:22px">&nbsp;User</label>
+				<input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-jenis" style="padding-top:22px">&nbsp;Dikirim Pada</label>
+				<input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div>
+				<label for="admin-jenis" style="padding-top:22px">&nbsp;Status Surat</label>
+				<input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div>
+				<button id="submit-btn" type="submit" name="submit" value="LOGIN">Submit</button>
+		   </div>
+		   </div>
+		   </div>
+		
+	 </form>
+</div>
+</div>
+</body>
+</html>
