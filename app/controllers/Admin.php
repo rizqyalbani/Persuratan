@@ -33,6 +33,8 @@
         //function lain
         public function addDataSuratMasuk(){
             $this->logCheck();
+            //contoh data array
+            //harus bentuk array key => value
             $data = [
                 "title" => "Tambah Surat Masuk",
                 "process" => "admin/AddDataSuratMasuk",
@@ -40,6 +42,8 @@
                 "surat" => $this->model("suratMasukModel")->getAllSuratMasuk()
             ];
 
+            //data dikirim kesini
+            //nanti datanya dipanggil di view pake $data['nama_parameter']
             $this->view("templates/header", $data);
             $this->view("admin/addDataSuratMasuk", $data);
             $this->view("templates/footer");
@@ -86,11 +90,13 @@
                 $user = [];
                 $status = [];
                 foreach ($data['disposisi'] as $disposisi) {
+                    //ambil data dari model, coba buka model disposisiModel, disana ada getAsalDisposisi
                     $asal[] =  $this->model('disposisiModel')->getAsalDisposisis($this->model('disposisiModel')->getDisposisi($id));
                     $user[] = $this->model('disposisiModel')->getUser($disposisi['id_user']);
                     $jenis[] = $this->model('disposisiModel')->getJenisDisposisis($disposisi['id_jenis_disposisi']);
                     $status[] = $this->model('disposisiModel')->getStatus($disposisi['id_status']);
                 }  
+                //ga harus [key => value] yang penting ada keynya ($data[key] = value)
                 $data["asal"] = $asal;
                 $data["jenis"] = $jenis;
                 $data["title"] = "Disposisi";
@@ -283,7 +289,9 @@
             }
         }
 
-<<<<<<< HEAD
+        
+        
+        
         //Update surat masuk belom lengkaps
         public function updateSuratMasuk($id){
             
@@ -310,17 +318,42 @@
         //         }
         //     }
         // }
+        public function updateDisposisi($id){
+            $data['disposisi']=$this->model('disposisiModel')->getDisposisiDetail($id);
+            $asal =[];
+            $jenis =[];
+            $status=[];
+            $user = [];
+            foreach($data['disposisi'] as $disposisi){
+                $asal[] =  $this->model('disposisiModel')->getAsalDisposisis($this->model('disposisiModel')->getDisposisi($id));
+                $user[] = $this->model('disposisiModel')->getUser($disposisi['id_user']);
+                $jenis[] = $this->model('disposisiModel')->getJenisDisposisis($disposisi['id_jenis_disposisi']);
+                $status[] = $this->model('disposisiModel')->getStatus($disposisi['id_status']);
+            }
+                $data["jDisposisi"] = $this->model("jenisDisposisiModel")->getJenis();
+                $data["asal"] = $asal;
+                $data["jenis"] = $jenis;
+                $data["title"] = "Disposisi";
+                $data["id_surat"] = $id;
+                $data["user"] = $user;
+                $data['status'] = $status;
+                $this->view('templates/header',$data);
+                $this->view('admin/updateDisposisi',$data);
+                $this->view('templates/footer',$data);
 
-=======
-        public function editDisposisi($id){
-            $data['admin']  = $this->model('disposisiModel')->getEditDisposisi();
-
-            $data['title'] = "update disposisi";
-            $this->view("templates/header",$data);
-            $this->view("admin/updateAdmin", $data);
-            $this->view("templates/footer");
+            //}
         }
->>>>>>> 788d3492bd4c5f3c5e2e12fac57f8636c9b9c1c1
+
+        public function updateDataDisposisi($id){
+            if(isset($_POST)){
+                if ($this->model("disposisiModel")->updateDisposisi($id) > 0 ) {
+                    $this->lihatDisposisi($_POST["id_surat_masuk"]);
+                }
+                else{
+                    echo "error";
+                }
+            }
+        }
+
     }
-    
 ?>
