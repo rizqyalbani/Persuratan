@@ -10,4 +10,7 @@
 <body>
     <ol>
         <li><a href="<?= BASE_URL?>Home/logOut">Logout</a></li>
+        <li><a href="<?= BASE_URL?>Home/index">Home</a></li>
+        <li><a href="<?= BASE_URL?>Home/disposisiMasuk">Disposisi Surat Masuk</a></li>
+        <li><a href="<?= BASE_URL?>Home/disposisiSuratKeluar">Disposisi Surat Keluar</a></li>
     </ol>

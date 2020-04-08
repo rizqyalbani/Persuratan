@@ -19,8 +19,22 @@ class Home extends mainController{
             header('Location:'.BASE_URL);
         }
     }
-    
+
+    // controller halaman index
     public function index(){
+        $this->logCheck();
+        $data = [
+            "title" => "Welcome",
+            "user" => $_SESSION['username']
+        ];
+
+        $this->view('templates/headerUser', $data);
+        $this->view('user/index', $data);
+        $this->view('templates/footer');
+
+    }
+    
+    public function disposisiMasuk(){
         session_start();
         $data['title'] = 'Home';
         $data['user'] = $this->model('User_model')->getAllDisposisi();
@@ -50,7 +64,7 @@ class Home extends mainController{
         $data['jenisSurat'] = $jenisSurat;
         // $data['test'] = $this->model('User_model')->getUser();
         $this->view('templates/headerUser', $data);
-        $this->view('user/index', $data);
+        $this->view('user/disposisiSuratMasuk', $data);
         $this->view('templates/footer');
     }
     // update status
