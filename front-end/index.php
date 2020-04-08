@@ -20,6 +20,7 @@
     <li><a href="surat_masuk.php"><img style=" height: 50px;" src="gambar/In.png"></img>Surat Masuk</a></li>
     <li><a href=""><i class="fas fa-link"></i>Surat Keluar</a></li>
     <li><a href="#"><i class="fas fa-stream"></i>Serah Terima Documen</a></li>
+   <button><a href=#>LOGOUT</a></button>
   </ul>
 </div>
   <div class="nav">
