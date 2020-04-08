@@ -26,7 +26,13 @@
   <div class="nav">
     <label style="margin-bottom:10px;"> Sistem Persuratan </label>
   </div>
- <section></section>
+ <section>
+    <div class="tulisan">
+      <h1>SELAMAT DATANG DI WEBSITE PERSURATAN.</h1><br>
+      <img src="logo skensa.jpg"><br><br>
+      <h3>SMK NEGERI 1 DENPASAR.</h3>
+    </div>
+ </section>
 
   </body>
 </html>
