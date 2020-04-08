@@ -243,13 +243,13 @@
         }
 
         //jika gagal update
-        public function showFailedUpdateRegister($fail){
+        public function showFailedUpdate($fail, $namaModel, $view){
 
-            $data['admin'] = $this->model('registerModel')->getRegister();
+            $data['admin'] = $this->model($namaModel)->getRegister();
             $data['failed'] = $fail;
             $data['title'] = 'Register Admin';
             $this->view("templates/header",$data);
-            $this->view("admin/showRegisterAdmin", $data);
+            $this->view($view, $data);
             $this->view("templates/footer");
         }
 
@@ -284,7 +284,7 @@
                 }
                 else{
                     $notif = "<script>alert('failed to update')</script>";
-                    $this->showFailedUpdateRegister($notif);
+                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
                 }
             }
         }
@@ -350,7 +350,8 @@
                     $this->lihatDisposisi($_POST["id_surat_masuk"]);
                 }
                 else{
-                    echo "error";
+                    $notif = "<script>alert('failed to update')</script>";
+                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
                 }
             }
         }
