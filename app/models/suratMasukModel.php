@@ -90,12 +90,12 @@
             // $this->db->update('entry_buku_kas',$data);
         }
      
-        function filterdata($no_bukti,$tgl_entry){
-            return $this->db->get_where('entry_buku_kas',
-                              array('no_bukti'=>$no_bukti,
-                                    'tgl_entry'=>$tgl_entry))->row();
+        // function filterdata($no_bukti,$tgl_entry){
+        //     return $this->db->get_where('entry_buku_kas',
+        //                       array('no_bukti'=>$no_bukti,
+        //                             'tgl_entry'=>$tgl_entry))->row();
 
         }                       
 
-    }
+    
 ?>
