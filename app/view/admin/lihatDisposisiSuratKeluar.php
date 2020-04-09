@@ -1,3 +1,4 @@
+<!-- PROTOTYPE  -->
 <h1>Lihat Disposisi</h1>
     <?php
         // print_r($data['disposisi']);
@@ -16,7 +17,6 @@
             <li>Dikirim pada : <?=$data['disposisi'][$a]['postedTime'] ?></li>
             <li>Status Surat : <?=$data['status'][$a] ?> </li>
             <li><a href="<?=BASE_URL?>Admin/deleteDisposisi/<?=$disposisi['id_disposisi']?>">Hapus Disposisi</a></li>
-            <li><a href="<?=BASE_URL?>Admin/updateDisposisi/<?=$disposisi['id_disposisi']?>">Edit</a></li>
             
         </ul>
         
@@ -24,4 +24,4 @@
         $a++;
         endforeach;
     ?>
-    <a href="<?= BASE_URL?>admin/disposisi/<?= $data['id_surat']?>">Tambah Disposisi</a>
+    <a href="<?= BASE_URL?>adminDisposisiKeluar/disposisi/<?= $data['id_surat']?>">Tambah Disposisi</a>

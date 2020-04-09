@@ -14,7 +14,7 @@
             return $this->db->allResult();
         }
         public function addDisposisi(){
-            print_r($_POST);
+            // print_r($_POST);
             //belom buat tampilin user
             if(isset($_POST['submit'])){
                 $d = time()+21600;//3600 = 60 menit, 21600 / 3600 = dihitung sendiri ya
@@ -32,6 +32,7 @@
                         :instruksi,
                         :id_user,
                         :id_status,
+                        :id_jenis_surat,
                         :id_surat_masuk,
                         :postedTime
                     )";
@@ -44,6 +45,7 @@
             $this->db->bind(':instruksi', $_POST['instruksi'] );
             $this->db->bind(':id_user', $_POST['user'] );
             $this->db->bind(':id_status', 1 );
+            $this->db->bind(':id_jenis_surat', 1 );
             $this->db->bind(':id_surat_masuk', $_POST['id_surat_masuk'] );
             $this->db->bind(':postedTime', $datePost );
             $this->db->execute();
@@ -70,8 +72,18 @@
             $this->db->bind('id', $binded);
             return $this->db->allResult();
         }
+
+        public function getDisposisiDetail($id){
+            //manggil disposisi berdasarkan user yang bersangkutan
+            $binded = $id ;
+            //print_r($id);
+            // ambil disposisi yang berkaitan dengan user yang sudah login aja
+            $this->db->query("SELECT * FROM $this->table as tbdis LEFT JOIN tbl_surat_masuk as tbsm ON tbsm.id_surat_masuk = tbdis.id_surat_masuk LEFT JOIN tbl_jenis_disposisi as tbjd ON tbjd.id_jenis_disposisi = tbdis.id_jenis_disposisi WHERE id_disposisi = :id"); //apa ga gila pake function tuh
+            $this->db->bind('id', $binded);
+            return $this->db->allResult();
+        }
         public function getDisposisiIdj($id){
-            print_r($id);
+            // print_r($id);
             
             //manggil disposisi berdasarkan user yang bersangkutan
             $binded = $id ;
@@ -120,12 +132,24 @@
             $getStatus = "SELECT status FROM tbl_status WHERE id_status = :id";
             $this->db->query($getStatus);
             $this->db->bind('id', $id);
+            //Result, allResult atau singleResult, itu kalo mau ambil isi dari data, biasanya buat SELECT, allResult buat semua, singleResult ambil 1 aja
             return $this->db->singleResult()['status'];
         }
 
-        public function editDisposisi($id){
-            $binded = $id ;
-            $this->db->query("SELECT * FROM $this->table WHERE id_surat_masuk = :id");
+        public function updateDisposisi($id){
+            $updateDisposisi = "UPDATE $this->table SET tanggal = :tanggal, tanggal_penyelesaian = :tanggal_penyelesaian, no_agenda = :no_agenda, id_jenis_disposisi = :id_jenis_disposisi, instruksi = :instruksi, id_surat_masuk = :id_surat_masuk where id_disposisi = :id";
+
+            $this->db->query($updateDisposisi);
+            $this->db->bind(':id', $id );
+            $this->db->bind(':tanggal', $_POST['tanggal'] );
+            $this->db->bind(':tanggal_penyelesaian', $_POST['tanggal_penyelesaian'] );
+            $this->db->bind(':no_agenda', $_POST['no_agenda'] );
+            $this->db->bind(':id_jenis_disposisi', $_POST['jenis_disposisi'] );
+            $this->db->bind(':instruksi', $_POST['instruksi'] );
+            $this->db->bind(':id_surat_masuk', $_POST['id_surat_masuk'] );
+            $this->db->execute();
+            //rowCount dipake buat nunjukkin berapa baris yg kena efek dari query, biasanya buat DELETE, INSERT, UPDATE
+            return $this->db->rowCount();
 
         }
 

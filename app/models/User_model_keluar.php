@@ -1,7 +1,7 @@
 <?php 
 
-class User_model{
-    private $table = 'tbl_disposisi';
+class User_model_keluar{
+    private $table = 'tbl_disposisi_keluar';
     private $db;
 
     public function __construct()
@@ -49,9 +49,9 @@ class User_model{
     }
 
     public function getDataSurat($data){
-        $user = "SELECT * FROM tbl_surat_masuk WHERE id_surat_masuk =  :id ";
+        $user = "SELECT * FROM tbl_surat_keluar WHERE id_surat_keluar =  :id ";
         $this->db->query($user);
-        $this->db->bind('id', $data['id_surat_masuk']);
+        $this->db->bind('id', $data['id_surat_keluar']);
         $a = $this->db->singleResult();
         return $a;
     }
@@ -72,7 +72,7 @@ class User_model{
 
     public function updateStatus($status, $id_disposisi){
 
-        $query = "UPDATE $this->table SET id_status = :id_status WHERE id_disposisi = :id_disposisi ";
+        $query = "UPDATE $this->table SET id_status = :id_status WHERE id_disposisi_keluar = :id_disposisi ";
         $this->db->query($query);
         $this->db->bind('id_status', $status);
         $this->db->bind('id_disposisi', $id_disposisi);

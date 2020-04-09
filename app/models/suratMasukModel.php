@@ -95,7 +95,7 @@
         //                       array('no_bukti'=>$no_bukti,
         //                             'tgl_entry'=>$tgl_entry))->row();
 
-        }                       
+        // }                       
 
     
 ?>
