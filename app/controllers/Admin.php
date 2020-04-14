@@ -290,34 +290,7 @@
         }
 
         
-        
-        
-        //Update surat masuk belom lengkaps
-        public function updateSuratMasuk($id){
-            
-            // if ($this->model('registerModel')->updateRegister($id) > 0) {
-            //     $this->showRegister();
 
-            $data['admin']  = $this->model('suratMasukModel')->getRegister();
-
-            $data['title'] = "update SuratMasuk";
-            $this->view("templates/header",$data);
-            $this->view("admin/updateSuratMasuk", $data);
-            $this->view("templates/footer");
-
-            }
-
-        // public function prosesUpdate(){
-        //     if(isset($_POST)){
-        //         if ($this->model("suratMasukModel")->updateSuratMasuk() > 0 ) {
-        //             $this->showUpdateSuratMasuk();
-        //         }
-        //         else{
-        //             $notif = "<script>alert('failed to update')</script>";
-        //             $this->showFailedUpdateSuratMasuk($notif);
-        //         }
-        //     }
-        // }
         public function updateDisposisi($id){
             $data['disposisi']=$this->model('disposisiModel')->getDisposisiDetail($id);
             $asal =[];
@@ -355,6 +328,39 @@
                 }
             }
         }
+
+        public funtion updateSuratMasuk($id){
+           $data['updateSuratMasuk']=$this->model('suratMasukModel')->getAllSuratMasuk($id);
+                $allsurat =[];
+                $suratmasukbyid =[];
+            foreach($data['update'] as $updateSuratMasuk){
+                $allsurat[] =  $this->model('suratMasukModel')->getAllSuratMasuk($this->model('suratMasukModel')->getSuratMasukById($id));
+                $suratmasukbyid[] = $this->model('disposisiModel')->getUser($disposisi['id_surat_masuk']);
+               
+        }
+
+         $data["jDisposisi"] = $this->model("jenisDisposisiModel")->getJenis();
+                $data["asal"] = $asal;
+                $data["jenis"] = $jenis;
+                $data["title"] = "Disposisi";
+                $data["id_surat"] = $id;
+                $data["user"] = $user;
+                $data['status'] = $status;
+                $this->view('templates/header',$data);
+                $this->view('admin/updateDisposisi',$data);
+                $this->view('templates/footer',$data);
+
+    }
+
+        public function updateDataSuratMasuk($id){
+            if(isset($_POST)){
+                if ($this->model("suratMasukModel")->updateSuratMasuk($id) > 0 ) {
+                    $this->updatesuratmasuk($_POST["id_surat_masuk"]);
+                }
+                else{
+                    $notif = "<script>alert('failed to update')</script>";
+                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+
 
     }
 ?>
