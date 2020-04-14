@@ -40,6 +40,7 @@
       <th style="width: 10px">Nomer</th>
       <th style="width: 200px">Prihal</th>
       <th style="width: 100px">No Petunjul</th>
+      <th>OPSI</th>
     </tr>
   </thead>
   <tbody>
@@ -51,6 +52,7 @@
       <td>1</td>
       <td>Domenic</td>
       <td>88,110</td>
+      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
     </tr>
     <tr>
       <td>2</td>
@@ -60,6 +62,7 @@
       <td>1</td>
       <td>Domenic</td>
       <td>88,110</td>
+      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
     </tr>
     <tr>
       <td>3</td>
@@ -69,6 +72,7 @@
       <td>1</td>
       <td>Domenic</td>
       <td>88,110</td>
+      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
     </tr>
     <tr>
       <td>4</td>
@@ -78,6 +82,7 @@
       <td>1</td>
       <td>Domenic</td>
       <td>88,110</td>
+      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
 
     </tr>
   </tbody>
