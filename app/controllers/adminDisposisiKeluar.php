@@ -136,16 +136,16 @@
                 $this->view('templates/footer', $data);
         }
 
-        public function updateDataDisposisi($id){
-            if(isset($_POST)){
-                if ($this->model("disposisiSuratKeluarModel")->updateDisposisiKeluar($id) > 0 ) {
-                    $this->lihatDisposisiSuratKeluar ($_POST["id_surat_keluar"]);
-                }
-                else{
-                    $notif = "<script>alert('failed to update')</script>";
-                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
-                }
-            }
-        }
+        // public function updateDataDisposisi($id){
+        //     if(isset($_POST)){
+        //         if ($this->model("disposisiSuratKeluarModel")->updateDisposisiKeluar($id) > 0 ) {
+        //             $this->lihatDisposisiSuratKeluar ($_POST["id_surat_keluar"]);
+        //         }
+        //         else{
+        //             $notif = "<script>alert('failed to update')</script>";
+        //             $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+        //         }
+        //     }
+        // }
     }
 ?>
