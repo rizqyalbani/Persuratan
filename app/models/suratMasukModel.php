@@ -67,35 +67,22 @@
             return $this->db->rowCount();
         }
 
-        //update surat masuk masih belom lengkap
-        public function updatedata($id){
-            $id_surat_masuk = $this->input->post('id_surat_masuk');
-            $lampiran_surat_masuk = $this->input->post('lampiran_surat_masuk');
-            $alamat_pengirim = $this->input->post('alamat_pengirim');
-            $tanggal_surat_masuk = $this->input->post('tanggal_surat_masuk');
-            $nomor_surat_masuk = $this->input->post('nomor_surat_masuk');
-            $perihal_surat_masuk = $this->input->post('perihal_surat_masuk');
-            $nama_instansi_surat_masuk = $this->input->post('nama_instansi_surat_masuk');
-            $data = array(
-                    'id_surat_masuk'=>$id_surat_masuk,
-                    'lampiran_surat_masuk'=>$lampiran_surat_masuk,
-                    'alamat_pengirim'=>$alamat_pengirim,
-                    'tanggal_surat_masuk'=>$tanggal_surat_masuk,
-                    'nomor_surat_masuk'=>$nomor_surat_masuk,
-                    'perihal_surat_masuk'=>$perihal_surat_masuk,
-                    'nama_instansi_surat_masuk'=>$nama_instansi_surat_masuk
-                    );
-            // $this->db->where(array('no_bukti'=>$no_bukti,
-            //                         'tgl_entry'=>$tgl_entry));
-            // $this->db->update('entry_buku_kas',$data);
-        }
-     
-        // function filterdata($no_bukti,$tgl_entry){
-        //     return $this->db->get_where('entry_buku_kas',
-        //                       array('no_bukti'=>$no_bukti,
-        //                             'tgl_entry'=>$tgl_entry))->row();
+        public function updateSuratMasuk($id){
+            $updatesuratMasuk = "UPDATE $this->table SET lampiran_tanggal_masuk = : lampiran_tanggal_masuk, alamat_pengirim = :alamat_pengirim, tanggal_surat_masuk = :tanggal_surat_masuk, nomor_surat_masuk = :nomor_surat_masuk, perihal_surat_masuk = :perihal_surat_masuk, instansi_surat_masuk = :instansi_surat_masuk where id_surat_masuk = :id";
 
-        // }                       
+            $this->db->query($updateSuratMasuk);
+            $this->db->bind(':id', $id );
+            $this->db->bind(':lampiran_tanggal_masuk', $_POST['lampiran_tanggal_masuk'] );
+            $this->db->bind(': alamat_pengirim', $_POST[' alamat_pengirim'] );
+            $this->db->bind(':tanggal_surat_masuk', $_POST['tanggal_surat_masuk'] );
+            $this->db->bind(':nomor_surat_masuk', $_POST['nomor_surat_masuk'] );
+            $this->db->bind(':perihal_surat_masuk', $_POST['perihal_surat_masuk'] );
+            $this->db->bind(':instansi_surat_masuk', $_POST['instansi_surat_masuk'] );
+            $this->db->execute();
+            //rowCount dipake buat nunjukkin berapa baris yg kena efek dari query, biasanya buat DELETE, INSERT, UPDATE
+            return $this->db->rowCount();
 
     }
+    }    
+    
 ?>

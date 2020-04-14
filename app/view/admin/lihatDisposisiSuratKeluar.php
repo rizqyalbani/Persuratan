@@ -16,7 +16,12 @@
             <li>User : <?=$data['user'][$a]['nama'] ?></li>
             <li>Dikirim pada : <?=$data['disposisi'][$a]['postedTime'] ?></li>
             <li>Status Surat : <?=$data['status'][$a] ?> </li>
+<<<<<<< HEAD
             <li><a href="<?=BASE_URL?>Admin/deleteDisposisi/<?=$disposisi['id_disposisi_keluar']?>">Hapus Disposisi</a></li>
+=======
+            <li><a href="<?=BASE_URL?>Admin/deleteDisposisi/<?=$disposisi['id_disposisi']?>">Hapus Disposisi</a></li>
+            <li><a href="<?=BASE_URL?>adminDisposisiKeluar/updateDisposisiKeluar/<?=$disposisi['id_disposisi_keluar']?>">edit Disposisi</a></li>
+>>>>>>> 6112d4b629b03bcff6000617a78d87ac10a7b9fb
             
         </ul>
         

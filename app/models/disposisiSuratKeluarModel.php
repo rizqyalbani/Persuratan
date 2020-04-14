@@ -110,5 +110,24 @@
             return $a['jenis_disposisi'];
         }
 
+        public function updateDisposisiKeluar($id){
+            $updateDisposisi = "UPDATE $this->table SET tanggal = :tanggal, tanggal_penyelesaian = :tanggal_penyelesaian, no_agenda = :no_agenda, id_jenis_disposisi = :id_jenis_disposisi, instruksi = :instruksi, id_user = :id_user, id_status = :id_status, id_jenis_surat = :id_jenis_surat, id_surat_keluar = :id_surat_keluar where id_disposisi_keluar = :id";
+
+            $this->db->query($updateDisposisi);
+            $this->db->bind(':id', $id );
+            $this->db->bind(':tanggal', $_POST['tanggal'] );
+            $this->db->bind(':tanggal_penyelesaian', $_POST['tanggal_penyelesaian'] );
+            $this->db->bind(':no_agenda', $_POST['no_agenda'] );
+            $this->db->bind(':id_jenis_disposisi', $_POST['jenis_disposisi'] );
+            $this->db->bind(':instruksi', $_POST['instruksi'] );
+            $this->db->bind(':id_user', $_POST['id_user'] );
+            $this->db->bind(':id_status', $_POST['id-status'] );
+            $this->db->bind(':id_jenis_surat', $_POST['id_jenis_surat'] );
+            $this->db->bind(':id_surat_keluar', $_POST['id_surat_keluar'] );
+            $this->db->execute();
+            //rowCount dipake buat nunjukkin berapa baris yg kena efek dari query, biasanya buat DELETE, INSERT, UPDATE
+            return $this->db->rowCount();
+
+        }
     }
 ?>
