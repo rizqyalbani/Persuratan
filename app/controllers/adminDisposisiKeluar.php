@@ -108,5 +108,44 @@
             //end of if
             }
         }
+
+        public function updateDisposisiKeluar($id){
+            $data['disposisi'] = $this->model('disposisiSuratKeluarModel')->getDisposisi($id);
+                // deklarasi array untuk menampung data
+                $asal = [];
+                $jenis = [];
+                $user = [];
+                $status = [];
+                foreach ($data['disposisi'] as $disposisi) {
+                    $asal[] =  $this->model('disposisiSuratKeluarModel')->getAsalDisposisis($this->model('disposisiSuratKeluarModel')->getDisposisi($id));
+                    $user[] = $this->model('disposisiSuratKeluarModel')->getUser($disposisi['id_user']);
+                    $jenis[] = $this->model('disposisiSuratKeluarModel')->getJenisDisposisis($disposisi['id_jenis_disposisi']);
+                    $status[] = $this->model('disposisiSuratKeluarModel')->getStatus($disposisi['id_status']);
+                }  
+                $data["asal"] = $asal;
+                $data["jenis"] = $jenis;
+                $data["title"] = "Disposisi Surat Keluar";
+                $data["id_surat"] = $id;
+                $data["user"] = $user;
+                $data['status'] = $status;
+                // print_r($perihal);                                  
+                // var_dump($data['disposisi']);
+
+                $this->view('templates/header', $data);
+                $this->view('admin/lihatDisposisiSuratKeluar',$data);
+                $this->view('templates/footer', $data);
+        }
+
+        public function updateDataDisposisi($id){
+            if(isset($_POST)){
+                if ($this->model("disposisiSuratKeluarModel")->updateDisposisiKeluar($id) > 0 ) {
+                    $this->lihatDisposisiSuratKeluar ($_POST["id_surat_keluar"]);
+                }
+                else{
+                    $notif = "<script>alert('failed to update')</script>";
+                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+                }
+            }
+        }
     }
 ?>

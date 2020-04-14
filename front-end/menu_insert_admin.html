@@ -12,7 +12,7 @@
         height: 600px;
         width: 700px;
         left: 300px;
-        top: 30px;
+        top: 30px;1
 	}
 	body{
 		background:#ADD8E6;
@@ -24,14 +24,13 @@
 	#card-title {
 	      font-family: "Raleway Thin", sans-serif;
 	      letter-spacing: 4px;
-	      padding-bottom: 23px;
 	      padding-top: 5px;
 	      text-align: center;
 	      color: #87CEFA;
 	}
 	label {
 	    font-family: "Raleway", sans-serif;
-	    font-size: 11pt;
+	    font-size: 10pt;
 	}
 	
 	.form {
@@ -42,13 +41,13 @@
 	.form-border {
 	    background: #000000;
 	    height: 1px;
-	    width: 50%;
+	    width: 100%;
 	}
 	.form-content {
 	    background: #ffffff;
 	    border: none;
 	    outline: none;
-	    padding-top: 14px;
+	    padding-top: 5px;
 	}
 	
 	#submit-btn {
@@ -58,13 +57,15 @@
 	    cursor: pointer;
 	    color: white;
 	    font-family: "Raleway SemiBold", sans-serif;
-	    height: 42.3px;
+	    height: 35px;
 	    margin: 0 auto;
-	    margin-top: 35px;
+	    margin-top: 5px;
 	    transition: 0.25s;
-	    width: 153px;
+	    width: 300px;
 	}
-	
+	select {
+		width: 100%;
+	}
   </style>
 </head>
 <body>
@@ -75,9 +76,9 @@
 		    	<h2>Menu Insert</h2>
 	  		</div>  		
 	  	<form method="post" class="form">
-	  	   <div class="row">	
-	  		  <div class="col-8 col-sm-6">
-	  			<label for="admin-tanggal" style="padding-top:13px">&nbsp;Tanggal</label>
+	  	   <!-- <div class="row">	
+	  		  <div class="col-8 col-sm-6"> -->
+	  			<label for="admin-tanggal" style="padding-top:5px">&nbsp;Tanggal</label>
 				<input
 				   id="admin-tanggal"
 				   class="form-content"
@@ -86,7 +87,7 @@
 				   autocomplete="on"
 				   required />
 				<div class="form-border"></div>
-				<label for="admin-lampiran" style="padding-top:22px">&nbsp;Tanggal Penyelesaian</label>
+				<label for="admin-lampiran" style="padding-top:10px">&nbsp;Tanggal Penyelesaian</label>
 				<input
 				   id="admin-lampiran"
 				   class="form-content"
@@ -94,7 +95,7 @@
 				   name="lampiran"
 				   required />
 				<div class="form-border"></div>
-				<label for="admin-no" style="padding-top:22px">&nbsp;No Agenda</label>
+				<label for="admin-no" style="padding-top:10px">&nbsp;No Agenda</label>
 				<input
 				   id="admin-no"
 				   class="form-content"
@@ -102,7 +103,7 @@
 				   name="no agednda"
 				   required />
 				<div class="form-border"></div>
-				<label for="admin-perihal" style="padding-top:22px">&nbsp;Perihal</label>
+				<label for="admin-perihal" style="padding-top:10px">&nbsp;Perihal</label>
 				<input
 				   id="admin-perihal"
 				   class="form-content"
@@ -110,20 +111,60 @@
 				   name="perihal"
 				   required />
 				<div class="form-border"></div>
-				<label for="admin-tanggal" style="padding-top:22px">&nbsp;Instruksi</label>
-				<input
+				<label for="instruksi" style="padding-top:10px; padding-bottom: 5px" >&nbsp;Instruksi</label>
+				<select>
+					<option>Opsi 1</option>
+					<option>Opsi 2</option>
+				</select>
+				<!-- <input
 				   id="admin-instruksi"
 				   class="form-content"
 				   type="text-align"
 				   name="instruksi"
 				   required />
-				<div class="form-border"></div>
-			</div>
+				<div class="form-border"></div> -->
+			<!-- </div> -->
 			<!-- </div>
 		<div class="row">	 -->
-			<div>	
-			<div class="col-4 col-sm-6">
-				<label for="admin-jenis" style="padding-top:22px">&nbsp;Jenis Disposisi</label>
+			
+			<!-- <div class="col-4 col-sm-6"> -->
+				<label for="admin-jenis" style="padding-top:10px; padding-bottom: 5px">&nbsp;Jenis Disposisi</label>
+				<select>
+					<option>Opsi 1</option>
+					<option>Opsi 2</option>
+				</select>
+				<!-- <input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div> -->
+				<label for="admin-jenis" style="padding-top:10px; padding-bottom: 5px">&nbsp;Surat Dari Instansi</label>
+				<select>
+					<option>Instansi 1</option>
+					<option>Instansi 2</option>
+				</select>
+				<!-- <input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div> -->
+				<label for="admin-jenis" style="padding-top:10px; padding-bottom: 5px">&nbsp;User</label>
+				<select>
+					<option>User 1</option>
+					<option>User 2</option>
+				</select>
+				<!-- <input
+				   id="admin-jenis"
+				   class="form-content"
+				   type="text-align"
+				   name="jenisdisposisi"
+				   required />
+				<div class="form-border"></div> -->
+				<label for="admin-jenis" style="padding-top:10px">&nbsp;Dikirim Pada</label>
 				<input
 				   id="admin-jenis"
 				   class="form-content"
@@ -131,31 +172,7 @@
 				   name="jenisdisposisi"
 				   required />
 				<div class="form-border"></div>
-				<label for="admin-jenis" style="padding-top:22px">&nbsp;Surat Dari Instasi</label>
-				<input
-				   id="admin-jenis"
-				   class="form-content"
-				   type="text-align"
-				   name="jenisdisposisi"
-				   required />
-				<div class="form-border"></div>
-				<label for="admin-jenis" style="padding-top:22px">&nbsp;User</label>
-				<input
-				   id="admin-jenis"
-				   class="form-content"
-				   type="text-align"
-				   name="jenisdisposisi"
-				   required />
-				<div class="form-border"></div>
-				<label for="admin-jenis" style="padding-top:22px">&nbsp;Dikirim Pada</label>
-				<input
-				   id="admin-jenis"
-				   class="form-content"
-				   type="text-align"
-				   name="jenisdisposisi"
-				   required />
-				<div class="form-border"></div>
-				<label for="admin-jenis" style="padding-top:22px">&nbsp;Status Surat</label>
+				<label for="admin-jenis" style="padding-top:10px">&nbsp;Status Surat</label>
 				<input
 				   id="admin-jenis"
 				   class="form-content"
