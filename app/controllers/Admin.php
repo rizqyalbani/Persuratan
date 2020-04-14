@@ -58,7 +58,15 @@
         }
 
         public function addDataSuratKeluar(){
-            $this->logCheck();
+            // $this->logCheck();
+            if( !empty($_POST) ){
+                if($this->model("suratKeluarModel")->addSuratKeluar($_POST) > 0){
+                    header("Location: " . BASE_URL . "admin/addDataSuratKeluar");
+                    // $this->addDataSuratKeluar();
+            }
+        }
+            else{
+
             $data = [
                 "title" => "Tambah Surat Keluar",
                 "process" => "admin/AddDataSuratKeluar",
@@ -70,14 +78,10 @@
             $this->view("admin/addDataSuratKeluar", $data);
             $this->view("templates/footer");
             // var_dump($_POST);
-            if( !empty($_POST) ){
-                if($this->model("suratKeluarModel")->addSuratKeluar($_POST) > 0){
-                    header("Location: " . BASE_URL . "admin/addDataSuratKeluar");
-                }
             //end of if
             }
         //end of addDataSuratKeluar
-        }
+    }
 
         // function buat show disposisi
         public function lihatDisposisiSuratKeluar($id){

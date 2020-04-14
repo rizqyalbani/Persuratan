@@ -73,6 +73,7 @@
         </td>
         <td>
             <a href="<?= BASE_URL?>adminDisposisiKeluar/deleteSuratKeluar/<?php echo $srt['id_surat_keluar'] ?>">Delete</a>
+            <a href="<?= BASE_URL?>adminDisposisiKeluar/UpdateSuratKeluar/<?php echo $srt['id_surat_keluar'] ?>">Update</a>
         </td>
     </tr>
     <?php endforeach ?>
