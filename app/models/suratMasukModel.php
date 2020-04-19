@@ -68,7 +68,7 @@
         }
 
         public function updateSuratMasuk($id){
-            $updatesuratMasuk = "UPDATE $this->table SET lampiran_tanggal_masuk = : lampiran_tanggal_masuk, alamat_pengirim = :alamat_pengirim, tanggal_surat_masuk = :tanggal_surat_masuk, nomor_surat_masuk = :nomor_surat_masuk, perihal_surat_masuk = :perihal_surat_masuk, instansi_surat_masuk = :instansi_surat_masuk where id_surat_masuk = :id";
+            $updateSuratMasuk = "UPDATE $this->table SET lampiran_tanggal_masuk = : lampiran_tanggal_masuk, alamat_pengirim = :alamat_pengirim, tanggal_surat_masuk = :tanggal_surat_masuk, nomor_surat_masuk = :nomor_surat_masuk, perihal_surat_masuk = :perihal_surat_masuk, instansi_surat_masuk = :instansi_surat_masuk where id_surat_masuk = :id";
 
             $this->db->query($updateSuratMasuk);
             $this->db->bind(':id', $id );

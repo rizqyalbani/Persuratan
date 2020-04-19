@@ -10,7 +10,7 @@
 <body>
     <ol>
         <li><a href="<?= BASE_URL?>admin/addDataSuratMasuk">Surat Masuk</a></li>
-        <li><a href="<?= BASE_URL?>admin/addDataSuratKeluar">Surat Keluar</a></li>
+        <li><a href="<?= BASE_URL?>adminDisposisiKeluar/addDataSuratKeluar">Surat Keluar</a></li>
         <li><a href="<?= BASE_URL?>admin/showRegister">Admin</a></li>
         <li><a href="<?= BASE_URL?>admin/showUser">User</a></li>
         <li><a href="<?= BASE_URL?>admin/logOut">Logout</a></li>

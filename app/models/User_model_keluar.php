@@ -13,7 +13,7 @@ class User_model_keluar{
         //manggil disposisi berdasarkan user yang bersangkutan
         $binded = $this->getUser();
         // ambil disposisi yang berkaitan dengan user yang sudah login aja
-        $this->db->query("SELECT * FROM $this->table WHERE id_user = :id"); //apa ga gila pake function tuh
+        $this->db->query("SELECT * FROM $this->table WHERE id_user = :id ORDER BY id_status ASC, id_disposisi_keluar DESC"); //apa ga gila pake function tuh
         $this->db->bind('id', $binded);
         // print_r($binded);
         return $this->db->allResult();

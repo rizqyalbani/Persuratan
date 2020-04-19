@@ -67,6 +67,31 @@
         $this->db->bind("id", $id);
         return $this->db->singleResult();
     }
+
+    // update
+    public function updateSuratKeluar($id){
+        $suratKeluar = "UPDATE $this->table SET lampiran_surat_keluar = :lampiran_surat_keluar, 
+        alamat_tujuan = :alamat_tujuan, 
+        tanggal_surat_keluar = :tanggal_surat_keluar, 
+        nomor_surat_keluar = :nomor_surat_keluar, 
+        perihal_surat_keluar = :perihal_surat_keluar, 
+        nama_instansi_surat_keluar = :nama_instansi_surat_keluar 
+        WHERE id_surat_keluar = :id";
+
+        $this->db->query($suratKeluar);
+        $this->db->bind(':id', $id );
+        $this->db->bind(':lampiran_surat_keluar', $_POST['lampiran_srt_klr'] );
+        $this->db->bind(':alamat_tujuan', $_POST['alamat_srt_klr'] );
+        $this->db->bind(':tanggal_surat_keluar', $_POST['tgl_srt_klr'] );
+        $this->db->bind(':nomor_surat_keluar', $_POST['nmr_srt_klr'] );
+        $this->db->bind(':perihal_surat_keluar', $_POST['perihal_srt_klr'] );
+        $this->db->bind(':nama_instansi_surat_keluar', $_POST['nama_instansi_surat_keluar'] );
+    
+        $this->db->execute();
+        //rowCount dipake buat nunjukkin berapa baris yg kena efek dari query, biasanya buat DELETE, INSERT, UPDATE
+        return $this->db->rowCount();
+
+    }
     
     }
 ?>

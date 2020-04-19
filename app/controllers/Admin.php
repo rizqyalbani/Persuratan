@@ -33,32 +33,33 @@
         //function lain
         public function addDataSuratMasuk(){
             $this->logCheck();
-            //contoh data array
-            //harus bentuk array key => value
-            $data = [
-                "title" => "Tambah Surat Masuk",
-                "process" => "admin/AddDataSuratMasuk",
-                "judul" => "Tambah Surat Masuk",
-                "surat" => $this->model("suratMasukModel")->getAllSuratMasuk()
-            ];
-
-            //data dikirim kesini
-            //nanti datanya dipanggil di view pake $data['nama_parameter']
-            $this->view("templates/header", $data);
-            $this->view("admin/addDataSuratMasuk", $data);
-            $this->view("templates/footer");
-            // var_dump($_POST);
             if( !empty($_POST) ){
                 if($this->model("suratMasukModel")->addSuratMasuk($_POST) > 0){
-                    header("Location: " . BASE_URL . "Admin");
+                    header("Location: " . BASE_URL . "Admin/addDataSuratMasuk");
                 }
             //end of if
+            }
+            else{
+                //contoh data array
+                //harus bentuk array key => value
+                $data = [
+                    "title" => "Tambah Surat Masuk",
+                    "process" => "admin/AddDataSuratMasuk",
+                    "judul" => "Tambah Surat Masuk",
+                    "surat" => $this->model("suratMasukModel")->getAllSuratMasuk()
+                ];
+    
+                //data dikirim kesini
+                //nanti datanya dipanggil di view pake $data['nama_parameter']
+                $this->view("templates/header", $data);
+                $this->view("admin/addDataSuratMasuk", $data);
+                $this->view("templates/footer");
             }
         //end of addData
         }
 
         public function addDataSuratKeluar(){
-            // $this->logCheck();
+            $this->logCheck();
             if( !empty($_POST) ){
                 if($this->model("suratKeluarModel")->addSuratKeluar($_POST) > 0){
                     header("Location: " . BASE_URL . "admin/addDataSuratKeluar");
@@ -99,8 +100,11 @@
                     $user[] = $this->model('disposisiModel')->getUser($disposisi['id_user']);
                     $jenis[] = $this->model('disposisiModel')->getJenisDisposisis($disposisi['id_jenis_disposisi']);
                     $status[] = $this->model('disposisiModel')->getStatus($disposisi['id_status']);
+                
                 }  
                 //ga harus [key => value] yang penting ada keynya ($data[key] = value)
+                // print_r($perihal);
+                // $data['perihal'] = $perihal;
                 $data["asal"] = $asal;
                 $data["jenis"] = $jenis;
                 $data["title"] = "Disposisi";
@@ -158,15 +162,10 @@
                     header("Location:" . BASE_URL . "admin/addDataSuratMasuk");
             }
         }
-        public function deleteSuratKeluar($id){
-            if ($this->model("suratKeluarModel")->deleteSuratKeluar($id) > 0) {
-                    header("Location:" . BASE_URL . "admin/addDataSuratKeluar");
-            }
-        }
 
         public function deleteDisposisi($id){
             if ($this->model("disposisiModel")->deleteDisposisi($id) > 0) {
-                    header("Location:" . BASE_URL . "admin/addDataSuratMasuk");
+                    header("Location:" . BASE_URL . "admin/addDataSuratKeluar");
             }
         }
 
@@ -185,7 +184,10 @@
                         $user[] = $this->model('disposisiModel')->getUser($disposisi['id_user']);
                         $jenis[] = $this->model('disposisiModel')->getJenisDisposisis($disposisi['id_jenis_disposisi']);
                         $status[] = $this->model('disposisiModel')->getStatus($disposisi['id_status']);
+                        $perihal[] = $this->model('disposisiModel')->getPerihal($disposisi['id_surat_masuk']);
                     }  
+                    // print_r($perihal);
+                    $data['perihal'] = $perihal;
                     $data["asal"] = $asal;
                     $data["jenis"] = $jenis;
                     $data["title"] = "Disposisi";
@@ -246,16 +248,16 @@
             $this->view("templates/footer");
         }
 
-        //jika gagal update
-        public function showFailedUpdate($fail, $namaModel, $view){
+        // //jika gagal update
+        // public function showFailedUpdate($fail, $namaModel, $view){
 
-            $data['admin'] = $this->model($namaModel)->getRegister();
-            $data['failed'] = $fail;
-            $data['title'] = 'Register Admin';
-            $this->view("templates/header",$data);
-            $this->view($view, $data);
-            $this->view("templates/footer");
-        }
+        //     $data['admin'] = $this->model($namaModel)->getRegister();
+        //     $data['failed'] = $fail;
+        //     $data['title'] = 'Register Admin';
+        //     $this->view("templates/header",$data);
+        //     $this->view($view, $data);
+        //     $this->view("templates/footer");
+        // }
 
         public function deleteAdmin($id){
             $data['title'] = 'Delete Admin';
@@ -288,7 +290,8 @@
                 }
                 else{
                     $notif = "<script>alert('failed to update')</script>";
-                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+                    header("Location: " . BASE_URL . "Admin/index");
+                    echo $notif;
                 }
             }
         }
@@ -296,24 +299,11 @@
         
 
         public function updateDisposisi($id){
-            $data['disposisi']=$this->model('disposisiModel')->getDisposisiDetail($id);
-            $asal =[];
-            $jenis =[];
-            $status=[];
-            $user = [];
-            foreach($data['disposisi'] as $disposisi){
-                $asal[] =  $this->model('disposisiModel')->getAsalDisposisis($this->model('disposisiModel')->getDisposisi($id));
-                $user[] = $this->model('disposisiModel')->getUser($disposisi['id_user']);
-                $jenis[] = $this->model('disposisiModel')->getJenisDisposisis($disposisi['id_jenis_disposisi']);
-                $status[] = $this->model('disposisiModel')->getStatus($disposisi['id_status']);
-            }
+                $data['disposisi']=$this->model('disposisiModel')->getDisposisiDetail($id);
                 $data["jDisposisi"] = $this->model("jenisDisposisiModel")->getJenis();
-                $data["asal"] = $asal;
-                $data["jenis"] = $jenis;
-                $data["title"] = "Disposisi";
+                $data["title"] = "Disposisi Surat Masuk Update";
+                
                 $data["id_surat"] = $id;
-                $data["user"] = $user;
-                $data['status'] = $status;
                 $this->view('templates/header',$data);
                 $this->view('admin/updateDisposisi',$data);
                 $this->view('templates/footer',$data);
@@ -322,13 +312,16 @@
         }
 
         public function updateDataDisposisi($id){
+
             if(isset($_POST)){
                 if ($this->model("disposisiModel")->updateDisposisi($id) > 0 ) {
                     $this->lihatDisposisi($_POST["id_surat_masuk"]);
                 }
                 else{
                     $notif = "<script>alert('failed to update')</script>";
-                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+                    echo $notif;
+                    $this->lihatDisposisi($_POST["id_surat_masuk"]);
+
                 }
             }
         }

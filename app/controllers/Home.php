@@ -24,6 +24,8 @@ class Home extends mainController{
     public function index(){
         $this->logCheck();
         $data = [
+            "jumlahMasuk" => $this->countDisposisiMasuk(),
+            "jumlahKeluar" => $this->countDisposisiKeluar(),
             "title" => "Welcome",
             "user" => $_SESSION['username']
         ];
@@ -33,11 +35,63 @@ class Home extends mainController{
         $this->view('templates/footer');
 
     }
+
+    public function countDisposisiKeluar(){
+        // session_start();
+        
+        if( !empty( $data['user'] = $this->model('User_model_keluar')->getAllDisposisi() ) ){
+            // print_r($data['user']);
+            foreach ($data['user'] as $b) {
+                $id_status[] = $b['id_status'];
+            }
+            // print_r($id_status);
+            $jumlah = array_count_values($id_status);
+            // echo "halo";
+            // print_R($jumlah);
+            if ( !empty($jumlah[1]) ) {
+                $data['jumlahKeluar'] = $jumlah[1];
+            }
+            else{
+                $data['jumlahKeluar'] = 0;
+            }
+
+            return $data['jumlahKeluar'];
+        }
+
+    }
+
+    public function countDisposisiMasuk(){
+        // session_start();
+        if( !empty($data['user'] = $this->model('User_model')->getAllDisposisi()) ){
+            // print_r($data['user']);
+            foreach ($data['user'] as $b) {
+                $id_status[] = $b['id_status'];
+            }
+            // print_r($id_status);
+            $jumlah = array_count_values($id_status);
+            // echo "halo";
+            // print_R($jumlah);
+            if ( !empty($jumlah[1]) ) {
+                $data['jumlahMasuk'] = $jumlah[1];
+            }
+            else{
+                $data['jumlahMasuk'] = 0;
+            }
+
+            return $data['jumlahMasuk'];
+        }
+        else{
+            $data['jumlahMasuk'] = 0;
+        }
+    }
     
     public function disposisiMasuk(){
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $data['title'] = 'Home';
         $data['user'] = $this->model('User_model')->getAllDisposisi();
+        // print_r($data['user']);
         $data['allStatus'] = $this->model('user_model')->allStatus();
         // deklarasiin variable untuk jadi sebuah array
         $id_jenis_disposisi = [];
@@ -53,22 +107,12 @@ class Home extends mainController{
             $listUser[] = $this->model('user_model')->getUser($a);
             $status[] = $this->model('user_model')->getStatus($a['id_status']);
             $jenisSurat[] = $this->model('user_model')->getJenisSurat($a['id_jenis_surat']);
-            $id_status[] = $a['id_status'];
             // print_r($a['id_status']);
             // $statusUser[] = $this->model('user_model')->getStatus($a['id_s'])
         }
-
-        $jumlah = array_count_values($id_status);
-        // print_r($jumlah);
-        // $data['jumlahKeluar'] = $jumlah[1];
-
-        if ( isset($jumlah[1]) ) {
-            $data['jumlahMasuk'] = $jumlah[2];
-        }
-        else{
-            $data['jumlahMasuk'] = 0;
-        }
-
+        $data['title'] = "Disposisi Masuk";
+        $data['jumlahMasuk'] = $this->countDisposisiMasuk();
+        $data['jumlahKeluar'] = $this->countDisposisiKeluar();
         $data['status'] = $status;
         $data['perihal'] = $perihal_surat_masuk;
         $data['suratAsal'] = $suratAsal;
@@ -82,7 +126,9 @@ class Home extends mainController{
     }
 
     public function disposisiKeluar(){
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $data['title'] = 'Home';
         $data['user'] = $this->model('User_model_keluar')->getAllDisposisi();
         $data['allStatus'] = $this->model('user_model_keluar')->allStatus();
@@ -92,7 +138,7 @@ class Home extends mainController{
         $perihal_surat_masuk = [];
         $listUser = [];
         $jenisSurat = [];
-        
+        // print_R($data['user']);
         foreach ($data['user'] as $a) {
             $id_jenis_disposisi[] = $this->model('user_model_keluar')->getJenisDisposisi($a);
             $suratAsal[] = $this->model('user_model_keluar')->getDataSurat($a);
@@ -104,18 +150,10 @@ class Home extends mainController{
             // print_r($a['id_status']);
             // $statusUser[] = $this->model('user_model')->getStatus($a['id_s'])
         }
-        // echo "halo";
-        $jumlah = array_count_values($id_status);
-        // print_r($jumlah);
-        // $data['jumlahKeluar'] = $jumlah[1];
-
-        if ( isset($jumlah[1]) ) {
-            $data['jumlahKeluar'] = $jumlah[1];
-        }
-        else{
-            $data['jumlahKeluar'] = 0;
-        }
-
+        
+        $data['jumlahMasuk'] = $this->countDisposisiMasuk();
+        $data['jumlahKeluar'] = $this->countDisposisiKeluar();
+        $data['title'] = "Disposisi Keluar";
         $data['status'] = $status;
         $data['perihal'] = $perihal_surat_masuk;
         $data['suratAsal'] = $suratAsal;
@@ -129,14 +167,15 @@ class Home extends mainController{
     }
 
     // update status
-    public function updateStatus($id_surat,$modelName){
+    public function updateStatus($id_surat, $modelName, $method){
         // print_r($id_surat);
         // print_r($modelName);
         // die();
         
         if ( isset($_POST['submit']) ) {
+            session_start();
             if ( $this->model($modelName)->updateStatus($_POST['status'], $id_surat) > 0 ) {
-                $this->disposisiKeluar();
+                $this->$method(); 
             }
         }
     }
