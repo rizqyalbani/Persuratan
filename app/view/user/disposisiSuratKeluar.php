@@ -22,7 +22,7 @@
             ?>
         </li>
         <li>
-            <form action="<?=BASE_URL?>Home/updateStatus/<?=$user['id_disposisi_keluar']?>/user_model_keluar" method="POST">
+            <form action="<?=BASE_URL?>Home/updateStatus/<?=$user['id_disposisi_keluar']?>/user_model_keluar/disposisiKeluar" method="POST">
                 Status Diterima :
                 <select name="status">
                     <option <?php echo $data['status'][$a]['id_status'] == 1 ? '' : 'selected' ?> value= "1">Belum Diterima </option>

@@ -9,7 +9,7 @@
         }
 
         public function getJenisDisposisi(){
-            $query = "SELECT * FROM " . $this->table;
+            $query = "SELECT * FROM " . $this->table . "ORDER BY id_disposisi DESC";
             $this->db->query($query);
             return $this->db->allResult();
         }
@@ -68,7 +68,7 @@
             $binded = $id ;
             //print_r($id);
             // ambil disposisi yang berkaitan dengan user yang sudah login aja
-            $this->db->query("SELECT * FROM $this->table WHERE id_surat_masuk = :id"); //apa ga gila pake function tuh
+            $this->db->query("SELECT * FROM $this->table WHERE id_surat_masuk = :id ORDER BY id_disposisi DESC"); //apa ga gila pake function tuh
             $this->db->bind('id', $binded);
             return $this->db->allResult();
         }
@@ -105,6 +105,8 @@
         }
 
         public function getAsalDisposisis($data){
+            // print_r($data);
+            // print_r($_POST);
             $user = "SELECT * FROM tbl_surat_masuk WHERE id_surat_masuk =  :id ";
             // echo $user;
             $this->db->query($user);
@@ -113,8 +115,17 @@
             return $a['nama_instansi_surat_masuk'];
         }
 
+        public function getPerihal($id){
+            // print_r($id);
+            $user = "SELECT * FROM tbl_surat_masuk WHERE id_surat_masuk =  :id ORDER BY id_surat_masuk DESC";
+            $this->db->query($user);
+            $this->db->bind('id', $id);
+            $a = $this->db->singleResult();
+            return $a['perihal_surat_masuk'];
+        }
+
         public function getUser($id){
-            $getUser = "SELECT * FROM tbl_user WHERE id_user =  :id ";
+            $getUser = "SELECT * FROM tbl_user WHERE id_user =  :id ORDER BY id_user DESC";
             $this->db->query($getUser);
             $this->db->bind('id', $id);
             return $this->db->singleResult();
@@ -129,7 +140,7 @@
         }
 
         public function getStatus($id){
-            $getStatus = "SELECT status FROM tbl_status WHERE id_status = :id";
+            $getStatus = "SELECT status FROM tbl_status WHERE id_status = :id ";
             $this->db->query($getStatus);
             $this->db->bind('id', $id);
             //Result, allResult atau singleResult, itu kalo mau ambil isi dari data, biasanya buat SELECT, allResult buat semua, singleResult ambil 1 aja

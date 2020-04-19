@@ -1,9 +1,8 @@
 <h2>edit disposisi keluar</h2>
 
-
-<form action="<?php echo BASE_URL . "admin/updateDataDisposisi/".$data['disposisi'][0]['id_disposisi'] ?>" method="POST">
-    <input value="<?php echo $data['disposisi'][0]['id_disposisi_keluar'];?>" name="id_disposisi" type="hidden"> <br>
-    <input value="<?php echo $data['disposisi'][0]['id_surat_keluar'];?>" name="id_surat_keluar" type="hidden"> <br>
+<form action="<?php echo BASE_URL . "adminDisposisiKeluar/updateDataDisposisi/".$data['disposisi'][0]['id_disposisi_keluar'] ?>" method="POST">
+    <input value="<?php echo $data['disposisi'][0]['id_disposisi_keluar'];?>" name="id_disposisi" type="text"> <br>
+    <input value="<?php echo $data['disposisi'][0]['id_surat_keluar'];?>" name="id_surat_keluar" type="text"> <br>
 
     <label for="agenda">No Agenda</label>
     <input id="agenda" name="no_agenda" type="number" value="<?php echo $data['disposisi'][0]['no_agenda'];?>"> <br>
@@ -18,9 +17,9 @@
     <input id="instruksi" name="instruksi" type="text" value="<?php echo $data['disposisi'][0]['instruksi'];?>"> <br>
 
     <!-- fix perihal -->
-    <label for="perihal">Perihal</label>
+    <!-- <label for="perihal">Perihal</label> -->
     <!-- input di disabled karena yang punya data itu surat masuk, bukan disposisi -->
-    <input id="perihal" name="perihal" type="text" value="<?php echo $data['disposisi'][0]['perihal_surat_masuk'];?>" disabled> <br>
+    <!-- <input id="perihal" name="perihal" type="text" value="<?php echo $data['disposisi'][0]['perihal_surat_masuk'];?>" disabled> <br> -->
 
     <label for="jenis_disposisi">Jenis Disposisi</label>
     <select id="jenis_disposisi" name="jenis_disposisi" type="text">

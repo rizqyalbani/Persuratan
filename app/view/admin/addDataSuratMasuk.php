@@ -47,6 +47,7 @@
 <!-- end form -->
 <table style="text-align:center" border="1" cellspacing="0" cellpadding="5" style="border-collapse : collapse">
     <tr>
+        <th>No</th>
         <th>Nomor Surat Keluar</th>
         <th>Perihal Surat Keluar</th>
         <th>Lampiran Surat Keluar</th>
@@ -57,9 +58,11 @@
         <th>Aksi</th>
     </tr>
     <?php
+        $no = 1;
         foreach($data['surat'] as $srt):
     ?>
     <tr>
+        <td><?=$no?></td>
         <td><?= $srt['nomor_surat_masuk'] ?></td>
         <td><?= $srt['perihal_surat_masuk'] ?></td>
         <td><?= $srt['lampiran_surat_masuk'] ?></td>
@@ -75,7 +78,11 @@
 
         </td>
     </tr>
-    <?php endforeach ?>
+    
+    <?php
+        $no++;
+        endforeach 
+    ?>
 </table>
 
 <!-- kerangka modal, sengaja taro paling bawah biar ga menuhin code. laigan dipanggil pake data-target -->
