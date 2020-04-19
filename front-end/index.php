@@ -17,14 +17,14 @@
     <div class="sidebar">
     <header>Menu</header>
   <ul>
-    <li><a href="surat_masuk.php"><img style=" height: 50px;" src="gambar/In.png"></img>Surat Masuk</a></li>
-    <li><a href=""><i class="fas fa-link"></i>Surat Keluar</a></li>
+    <li><a href="surat_masuk.php"><i class="fas fa-arrow-circle-right"></i>Surat Masuk</a></li>
+    <li><a href=""><i class="fas fa-arrow-circle-left"></i>Surat Keluar</a></li>
     <li><a href="#"><i class="fas fa-stream"></i>Serah Terima Documen</a></li>
    <button><a href=#>LOGOUT</a></button>
   </ul>
 </div>
   <div class="nav">
-    <label style="margin-bottom:10px;"> Sistem Persuratan </label>
+   <label style="margin-bottom:5px;"><img src="logo_skensa.png"> S K E N M A I L </label>
   </div>
  <section>
     <div class="tulisan">
