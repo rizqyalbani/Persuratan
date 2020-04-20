@@ -86,7 +86,7 @@
   </style>
   </head>
   <body>
-  <img src="<?php echo BASE_URL?>login.php">
+  <img src="<?php echo BASE_URL?>asset/login.png">
   <div id="card">
  		<div id="card-content">
 	  		<div id="card-title">

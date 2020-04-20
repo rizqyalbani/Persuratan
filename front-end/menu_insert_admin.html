@@ -4,46 +4,6 @@
 	<title>Insert Admin</title>
 </head>
 	<style>
-	a{
-			text-decoration: none; 
-			font-size: 20px;
-			font-family: "Raleway Thin", sans-serif;
-			padding: 14px 10px}
-    	ul{
-    		padding: 14px
-    	}
-    	li{
-    		list-style: none;
-    		 display: inline;
-    	}
-    	li a{
-    		background: #87CEFA; 
-    		color: #ffffff;
-    	}
-    	.li1{
-    		position: absolute;
-    		left: 650px;
-    	}
-    	.li2{
-    		position: absolute;
-    		left: 790px;
-    	}
-    	.li3{
-    		position: absolute;
-    		left: 930px;
-    	}
-    	.li4{
-    		position: absolute;
-    		left: 1020px;
-    	}
-    	.li5{
-    		position: absolute;
-    		left: 1100px;
-    	}
-    	.navi{
-    		background: #87CEFA; 
-    		height: 50px
-    	}
   	#card {
         position: absolute;
         background: #ffffff;
@@ -52,7 +12,7 @@
         height: 800px;
         width: 500px;
         left: 453px;
-        top: 100px;1
+        top: 100px;
 	}
 	body{
 		background:#87CEFA;
@@ -110,7 +70,7 @@
 	    font-family: "Raleway SemiBold", sans-serif;
 	    height: 35px;
 	    margin: 0 auto;
-	    margin-top: 20px;
+	    margin-top: 10px;
 	    transition: 0.25s;
 	    width: 300px;
 	}
@@ -126,16 +86,7 @@
   </style>
 </head>
 <body>
-<ul>
-    	<li><a href="#"><b>Persuratan</b></a></li>
-        <li class="li1"><a href="#">Surat Masuk</a></li>
-        <li class="li2"><a href="#">Surat Keluar</a></li>
-        <li class="li3"><a href="#">Admin</a></li>
-        <li class="li4"><a href="#">User</a></li>
-        <li class="li5"><a href="#">Logout</a></li>
-</ul>
-<hr>
-<img src="insert2 (2).png">
+<img src="<?php echo BASE_URL?>asset/imginsert1.png">
 		<div id="card">
  				<div id="card-content">
 	  				<div id="card-title">
@@ -213,7 +164,7 @@
 				<div class="form-border"></div>
 			<button id="submit-btn" type="submit" name="submit" value="LOGIN">Submit</button>
 	 </form>
-	 	<img src="insert2 (1).png" class="img2">
+	 	<img src="<?php echo BASE_URL?>asset/login.png" class="img2">
 </div>
 </div>
 </body>
