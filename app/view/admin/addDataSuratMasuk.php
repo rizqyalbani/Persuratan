@@ -75,6 +75,7 @@
         <td>
          
           <a onclick="confirm('Are you sure want to delete this?')" href="<?=BASE_URL?>admin/deleteSuratMasuk/<?=$srt['id_surat_masuk']?>">Delete</a>
+          <a href="<?=BASE_URL?>admin/updateSuratMasuk/<?=$srt['id_surat_masuk']?>">Update</a>
 
         </td>
     </tr>
