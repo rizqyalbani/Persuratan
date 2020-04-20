@@ -360,7 +360,7 @@
             $data["allsuratmasuk"] = $allsuratmasuk;
             // $data["lampiran_surat_masuk"] = $lampiran_surat_masuk;
             $data["title"] = "updateSuratMasuk";
-            // $data["id_surat_masuk"] = $id_surat_masuk;
+            // $data["surat_masuk"] = surat_masuk;
             // $data["alamat_pengirim"] = $alamat_pengirim;
             // $data['tanggal_surat_masuk'] = $tanggal_surat_masuk;
             // $data['nomor_surat_masuk'] = $nomor_surat_masuk;
