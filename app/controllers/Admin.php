@@ -325,6 +325,27 @@
                 }
             }
         }
+
+        public function showUser(){
+
+            $data['user'] = $this->model('User_model')->getAllUser();
+
+            $data['title'] = 'List User';
+            $this->view("templates/header",$data);
+            $this->view("admin/showUser", $data);
+            $this->view("templates/footer");
+        }
+
+        public function deleteUser($id){
+            $data['title'] = 'Delete User';
+
+            if ($this->model('User_model')->deleteUsr($id) > 0) {
+
+                $this->showUser();
+
+            }
+        }
+
 }
 
 
