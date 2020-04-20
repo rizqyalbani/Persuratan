@@ -48,6 +48,14 @@ class User_model{
         return $this->db->allResult();
     }
 
+    public function deleteUsr($id){
+        $query = "DELETE FROM $this->tb WHERE id_user = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
     public function getDataSurat($data){
         $user = "SELECT * FROM tbl_surat_masuk WHERE id_surat_masuk =  :id ";
         $this->db->query($user);
