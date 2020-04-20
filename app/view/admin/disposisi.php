@@ -1,4 +1,4 @@
-<h1>Send disposisi</h1>
+<h2>tambah disposisi</h2>
 <form action="<?php echo BASE_URL . $data['process']?>" method="POST">
     <input value="<?php echo $data['surat_masuk']['id_surat_masuk'] ?>" id="id_surat_masuk" name="id_surat_masuk" type="hidden"> <br>
 
@@ -41,6 +41,9 @@
     </select> <br>
     <button name="submit" type="submit">Kirim Disposisi</button>
 </form>
+
+
+
 <!-- <option value=""></option> -->
         <?php
             // for ($i=0; $i < count($data['jDisposisi']) ; $i++) { 
