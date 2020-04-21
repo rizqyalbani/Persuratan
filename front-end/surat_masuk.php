@@ -22,11 +22,12 @@
     <li><a href="surat_masuk.php"><i class="fas fa-arrow-circle-left"></i>Surat Masuk</a></li>
     <li><a href="#"><i class="fas fa-arrow-circle-left"></i>Surat Keluar</a></li>
     <li><a href="#"><i class="fas fa-stream"></i>Serah Terima Documen</a></li>
+   <li><a href="#"><i class="fas fa-folder-open"></i>>Daftar Karyawan</a></li>
      <button><a href=#>LOGOUT</a></button>
   </ul>
 </div>
   <div class="nav">
-   <label style="margin-bottom:5px;"><img src="logo_skensa.png"> S K E N M A I L </label>
+   <label style="margin-bottom:5px;"><img src="<?php echo BASE_URL?>asset/logo_skensa.png"> S K E N M A I L </label>
   </div>
   <button class="btn" style="margin-top:15px; margin-left:1100px;"><a href="javascript:void(0);" id="jwpopupLink" style="text-decoration: none;">Tambah Data Surat</a></button>
   
@@ -52,7 +53,8 @@
       <td>2020-03-02</td>
       <td>SMKN 1 DENPASAR</td>
       <td><a href="#">Kirim</a>|<a href="#">Lihat</a></td>
-      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
+      <td><button><a href="#">Edit</a></button><button onclick="konfirmasi()"><a href="#">Delete</a></button></td>
+      <p id="pesan"></p>
     </tr>
     <tr>
      <td>002</td>
@@ -62,7 +64,8 @@
       <td>2020-03-02</td>
       <td>SMKN 1 DENPASAR</td>
       <td><a href="#">Kirim</a>|<a href="#">Lihat</a></td>
-      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
+      <td><button><a href="#">Edit</a></button><button onclick="konfirmasi()"><a href="#">Delete</a></button></td>
+      <p id="pesan"></p>
     </tr>
     <tr>
      <td>003</td>
@@ -72,7 +75,8 @@
       <td>2020-03-02</td>
       <td>SMKN 1 DENPASAR</td>
       <td><a href="#">Kirim</a>|<a href="#">Lihat</a></td>
-      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
+      <td><button><a href="#">Edit</a></button><button onclick="konfirmasi()"><a href="#">Delete</a></button></td>
+      <p id="pesan"></p>
     </tr>
     <tr>
       <td>004</td>
@@ -82,8 +86,22 @@
       <td>2020-03-02</td>
       <td>SMKN 1 DENPASAR</td>
       <td><a href="#">Kirim</a>|<a href="#">Lihat</a></td>
-      <td><a href="#">Edit</a>|<a href="#">Delete</a></td>
+      <td><button><a href="#">Edit</a></button><button onclick="konfirmasi()"><a href="#">Delete</a></button></td>
+      <p id="pesan"></p>
     </tr>
+     <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Menghapus Data Ini ?");
+ 
+         if(tanya === true) {
+            pesan = "";
+         }else{
+            pesan = "";
+         }
+ 
+         document.getElementById("pesan").innerHTML = pesan;
+      }
+    </script>
   </tbody>
 </table>
 
