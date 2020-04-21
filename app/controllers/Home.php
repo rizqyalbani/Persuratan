@@ -2,6 +2,12 @@
 
 class Home extends mainController{
 
+    public function starterSession(){
+        if ( empty($_SESSION) ) {
+            session_start();
+        }
+    }
+
     public function logOut(){
         session_start();
         $_SESSION['username'] = '';
@@ -179,6 +185,36 @@ class Home extends mainController{
             }
         }
     }
+
+    public function showProfile(){
+
+        $this->starterSession();
+        
+        if ( isset($_POST['submit']) ) {
+            if ($this->model('userDataModel')->updateUser() > 0) {
+                $this->logOut();
+                // echo "halo";
+            }
+            else{
+                header("Location: " . BASE_URL . "Home/showProfile");
+            }
+        }
+        else{
+            // echo "yes";
+            $user = $_SESSION['username'];
+            // print_r($user);
+            // $data['user'] = $user;
+            $data['user'] = $this->model('userDataModel')->getUserDataByUsername($user);
+            $data['title'] = "Profile";
+            $data['jumlahKeluar'] = $this->countDisposisiKeluar();
+            $data['jumlahMasuk'] = $this->countDisposisiMasuk();
+    
+            $this->view('templates/headerUser', $data);
+            $this->view('user/profile', $data);
+            $this->view('templates/footer', $data);
+        }
+    }
+
 
 
 }

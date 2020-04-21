@@ -1,6 +1,6 @@
 <?php
 
-class loginModel
+class loginModel extends mainController
 {
     private $tb = "tbl_user",
     		$db,
@@ -48,13 +48,16 @@ class loginModel
                             // var_dump("DATA USER");die;
                         }
                     }else{ //end if cek password
-                        var_dump("Wrong Password!");die;
+                        $data['valid'] = "<p style='color:red;' >Wrong Password!</p>";
+                        $this->view("Login/Login", $data);
                     }
                 }else{ //end if password
                     var_dump("Fill Password!");die;
                 }
             }else{ //end if data_user
-                var_dump("Wrong Username!");die;
+                // var_dump("Wrong Username!");die;
+                $data['valid'] = "<p style='color:red;' >Wrong Username!</p>";
+                $this->view("Login/Login", $data);
             }
         
 

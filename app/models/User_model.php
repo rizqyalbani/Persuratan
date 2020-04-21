@@ -49,7 +49,7 @@ class User_model{
     }
 
     public function deleteUsr($id){
-        $query = "DELETE FROM $this->tb WHERE id_user = :id";
+        $query = "DELETE FROM tbl_user WHERE id_user = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
         $this->db->execute();
