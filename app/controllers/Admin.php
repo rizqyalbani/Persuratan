@@ -347,41 +347,51 @@
             }
         }
 
+        public function updateSuratMasuk($id){
+            $data['surat_masuk']=$this->model('suratMasukModel')->getSuratMasukById($id);
+            $allsuratmasuk =[];
+           
+            foreach($data['surat_masuk'] as $updateSuratMasuk){
+                $allsuratmasuk[] =  $this->model('suratMasukModel')->getAllSuratMasuk($this->model('suratMasukModel')->getSuratMasukById($id));
+        
+        
+            }
+            //bagian controller yang ini masih error
+            // $data["upadateSuratMasuk"] = $this->model("suratMasukModel")->getAllSuratMasuk();
+            $data["allsuratmasuk"] = $allsuratmasuk;
+            // $data["lampiran_surat_masuk"] = $lampiran_surat_masuk;
+            $data["title"] = "updateSuratMasuk";
+            // $data["surat_masuk"] = surat_masuk;
+            // $data["alamat_pengirim"] = $alamat_pengirim;
+            // $data['tanggal_surat_masuk'] = $tanggal_surat_masuk;
+            // $data['nomor_surat_masuk'] = $nomor_surat_masuk;
+            // $data['perihal_surat_masuk'] = $perihal_surat_masuk;
+            // $data['nama_instansi_surat_masuk'] = $nama_instansi_surat_masuk;
+            // echo "<pre>";
+            // print_r($data);
+            // echo "</pre>";
+            // exit();
+            $this->view('templates/header',$data);
+            $this->view('admin/updateSuratMasuk',$data);
+            $this->view('templates/footer',$data);
+        
+        }
+        
+        public function updateDataSuratMasuk($id){
+            if(isset($_POST)){
+                if ($this->model("suratMasukModel")->updateSuratMasuk($id) > 0 ) {
+                    $this->updatesuratmasuk($_POST["id_surat_masuk"]);
+                }else{
+                    $notif = "<script>alert('failed to update')</script>";
+                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+        
+        
+                }
+            }
+        }
+        
 }
 
 
-    //     public function updateSuratMasuk($id){
-    //        $data['updateSuratMasuk']=$this->model('suratMasukModel')->getAllSuratMasuk($id);
-    //             $allsurat =[];
-    //             $suratmasukbyid =[];
-    //         foreach($data['update'] as $updateSuratMasuk){
-    //             $allsurat[] =  $this->model('suratMasukModel')->getAllSuratMasuk($this->model('suratMasukModel')->getSuratMasukById($id));
-    //             $suratmasukbyid[] = $this->model('disposisiModel')->getUser($disposisi['id_surat_masuk']);
-               
-    //     }
 
-    //      $data["jDisposisi"] = $this->model("jenisDisposisiModel")->getJenis();
-    //             $data["asal"] = $asal;
-    //             $data["jenis"] = $jenis;
-    //             $data["title"] = "Disposisi";
-    //             $data["id_surat"] = $id;
-    //             $data["user"] = $user;
-    //             $data['status'] = $status;
-    //             $this->view('templates/header',$data);
-    //             $this->view('admin/updateDisposisi',$data);
-    //             $this->view('templates/footer',$data);
-
-    // }
-
-    //     public function updateDataSuratMasuk($id){
-    //         if(isset($_POST)){
-    //             if ($this->model("suratMasukModel")->updateSuratMasuk($id) > 0 ) {
-    //                 $this->updatesuratmasuk($_POST["id_surat_masuk"]);
-    //             }
-    //             else{
-    //                 $notif = "<script>alert('failed to update')</script>";
-    //                 $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
-
-
-    // }
 ?>

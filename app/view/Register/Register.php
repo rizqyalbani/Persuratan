@@ -5,10 +5,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <?=$data['title']?> </title>
+      <style>
+        img{
+          position: absolute;
+          width: 350px;
+          height: 410px;
+          left: 651px;
+          top: 105px;
+        }
+          #card {
+              position: absolute;
+              background: white;
+              border-radius: 1px;
+              box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+              height: 410px;
+              margin: 6rem auto 8.1rem auto;
+              width: 350px;
+              left: 300px;
+        }
+        body{
+          background-color: #4682B4;
+        }
+        #card-content {
+            padding: 12px 44px;
+        }
+        #card-title {
+              font-family: "Raleway Thin", sans-serif;
+              letter-spacing: 4px;
+              padding-bottom: 23px;
+              padding-top: 13px;
+              text-align: center;
+              color: #4682B4;
+        }
+        label {
+            font-family: "Raleway", sans-serif;
+            font-size: 11pt;
+        }
+        .form {
+            align-items: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-border {
+            background: #4682B4;
+            height: 1px;
+            width: 100%;
+        }
+        .form-content {
+            background: white;
+            border: none;
+            outline: none;
+            padding-top: 14px;
+        }
+        #submit-btn {
+            background:#4682B4;
+            border: none;
+            border-radius: 21px;
+            box-shadow: 0px 1px 8px #000000;
+            cursor: pointer;
+            color: white;
+            font-family: "Raleway SemiBold", sans-serif;
+            height: 42px;
+            margin: 0 auto;
+            margin-top: 30px;
+            transition: 0.25s;
+            width: 200px;
+        }
+    </style>
   </head>
   <body>
+    <img src="<?php echo BASE_URL?>asset/register.png">
 
-  <form action="<?= BASE_URL; ?>proses/register" method="POST">
+    <div id="card">
+ 		<div id="card-content">
+	  		<div id="card-title">
+		    	<h2>Register</h2>
+        </div>
+        
+	  		<form method="post" class="form" action="<?= BASE_URL; ?>proses/register">
+	  			<label for="user-email" style="padding-top:13px">&nbsp;Username</label>
+				<input
+				   id="user-email"
+				   class="form-content"
+				   type="text"
+				   name="username"
+				   autocomplete="on"
+           required />
+           
+				<div class="form-border"></div>
+				<label for="user-password" style="padding-top:22px">&nbsp;Password</label>
+				<input
+				   id="user-password"
+				   class="form-content"
+				   type="password"
+				   name="password"
+           required />
+          
+        <div class="form-border"></div>
+        <label for="nip" style="padding-top:22px"> nip</label>
+        <input type="number" name="nip" class="form-content">
+				<!-- <label for="nip" style="padding-top:22px">nip</label>
+				<input
+				   id="user-password"
+				   class="form-content"
+				   type="password"
+				   name="password"
+				   required /> -->
+        <div class="form-border"></div>
+
+        <input type="hidden" value ="2" name="id_role">
+				<button id="submit-btn" type="submit" name="submit" value="LOGIN">SUBMIT</button>
+	  		</form>
+		</div>
+ 	</div>
+
+  
+</body>
+
+<!-- <form action="<?= BASE_URL; ?>proses/register" method="POST">
     <label for=""> Username</label>
     <input type="text" name="username">
     
@@ -21,4 +135,4 @@
     <input type="hidden" value ="2" name="id_role">
 
     <button type="submit" name="submit">Daftar </button>
-  </form>
+  </form> -->
