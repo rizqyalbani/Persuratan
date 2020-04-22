@@ -1,68 +1,24 @@
-<h1>Hello This is admin</h1>
-<h2><?=$data['judul']?></h2>
-<!-- form -->
+<a href="javascript:void(0);" id="jwpopupLink" style="text-decoration: none;"><button class="btn" style="margin-top:15px; margin-left:1100px;">Tambah Data Surat</button></a>
 
-<form action="<?php echo BASE_URL . $data['process'] ?>" method="POST">
-    <div>
-        <!-- Nomor surat masuk -->
-        <label for="nmr_srt_msk">Nomor surat masuk</label>
-        <input type="text" id="nmr_srt_msk" name="nmr_srt_msk" type="text">
-    </div>
-    <br>
-    <!-- Tanggal surat masuk -->
-    <div>
-        <label for="tgl_srt_msk">Tanggal surat masuk</label>
-        <input type="date" id="tgl_srt_msk" name="tgl_srt_msk" type="text">
-    </div>
-    <br>
-    <!-- Alamat Pengirim -->
-    <div>
-        <label for="alamat_srt_msk">Alamat Pengirim</label>
-        <input type="text" id="alamat_srt_msk" name="alamat_srt_msk" type="text">
-    </div>
-    <br>
-    <!-- perihal -->
-    <div>
-        <label for="perihal_srt_msk">Perihal Surat Masuk</label>
-        <input type="text" id="perihal_srt_msk" name="perihal_srt_msk" type="text">
-    </div>
-    <br>
-    <!-- lampiran dokumen -->
-    <div>
-        <label for="lampiran_srt_msk">Lampiran Surat Masuk</label>
-        <input type="text" id="lampiran_srt_msk" name="lampiran_srt_msk" type="text">
-    </div>
-
-    <div>
-        <label for="lampiran_srt_msk">Nama Instansi</label>
-        <input type="text" id="nama_instansi_surat_masuk" name="nama_instansi_surat_masuk" type="text">
-    </div>
-
-    <br>
-    
-    <div>
-        <button type="submit" name="submit" >Send data</button>
-    </div>
-</form>
-<!-- end form -->
-<table style="text-align:center" border="1" cellspacing="0" cellpadding="5" style="border-collapse : collapse">
-    <tr>
-        <th>No</th>
-        <th>Nomor Surat Keluar</th>
-        <th>Perihal Surat Keluar</th>
-        <th>Lampiran Surat Keluar</th>
-        <th>Alamat Tujuan Surat Keluar</th>
-        <th>Tanggal Surat Keluar</th>
-        <th>Nama Instansi</th>
-        <th>Disposisi</th>
-        <th>Aksi</th>
+<table class="content-table">
+  <thead>
+     <tr>
+      <th style="width: 70px">No. Surat Masuk</th>
+      <th style="width: 150px">Perihal Surat Masuk</th>
+      <th style="width: 150px">Lampiran Surat Masuk</th>
+      <th style="width: 200px">Alamat Tujuan Surat Masuk</th>
+      <th style="width: 105px">Tgl Surat Masuk</th>
+      <th style="width: 100px">Nama Instansi</th>
+      <th style="width: 100px">Disposisi</th>
+      <th style="width: 50px">OPSI</th>
     </tr>
+  </thead>
+  <tbody>
     <?php
         $no = 1;
         foreach($data['surat'] as $srt):
     ?>
     <tr>
-        <td><?=$no?></td>
         <td><?= $srt['nomor_surat_masuk'] ?></td>
         <td><?= $srt['perihal_surat_masuk'] ?></td>
         <td><?= $srt['lampiran_surat_masuk'] ?></td>
@@ -74,16 +30,99 @@
         </td>
         <td>
          
-          <a onclick="confirm('Are you sure want to delete this?')" href="<?=BASE_URL?>admin/deleteSuratMasuk/<?=$srt['id_surat_masuk']?>">Delete</a>
-          <a href="<?=BASE_URL?>admin/updateSuratMasuk/<?=$srt['id_surat_masuk']?>">Update</a>
+          <a onclick="confirm('Are you sure want to delete this?')" href="<?=BASE_URL?>admin/deleteSuratMasuk/<?=$srt['id_surat_masuk']?>"><button>Delete</button> </a>
+          <a href="<?=BASE_URL?>admin/updateSuratMasuk/<?=$srt['id_surat_masuk']?>"><button>Update</button></a>
 
         </td>
     </tr>
-    
     <?php
         $no++;
         endforeach 
     ?>
+     <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Menghapus Data Ini ?");
+ 
+         if(tanya === true) {
+            pesan = "";
+         }else{
+            pesan = "";
+         }
+ 
+         document.getElementById("pesan").innerHTML = pesan;
+      }
+    </script>
+  </tbody>
 </table>
 
-<!-- kerangka modal, sengaja taro paling bawah biar ga menuhin code. laigan dipanggil pake data-target -->
+<div id="jwpopupBox" class="jwpopup">
+  <!-- jwpopup content -->
+  <div class="jwpopup-content">
+    <div class="jwpopup-head">
+      <span class="close">×</span>
+      <h2>Isi Form berikut untuk menambahkan Data Surat</h2>
+    </div>
+
+    <div class="jwpopup-main">
+      <form action="<?php echo BASE_URL . $data['process'] ?>" method="POST">
+      <label>No.Surat Masuk :</label>
+      <input style="margin-left: 82.5px" type="number" id="nmr_srt_msk" name="nmr_srt_msk"><br>
+ 
+      <label>Perihal Surat Masuk :</label>
+      <input style="margin-left: 54px" type="text" id="perihal_srt_msk" name="perihal_srt_msk"><br>
+
+      <label>Lampiran Surat Masuk :</label>
+      <input style="margin-left: 3em" type="text" id="nlampiran_srt_msk" name="lampiran_srt_msk"><br>
+
+      <label>Alamat Tujuan Surat Masuk :</label>
+      <input type="text" id="alamat_srt_msk" name="alamat_srt_msk"><br>
+
+      <label>Tgl Surat Masuk :</label>
+      <input style="margin-left: 6.4em" type="date" id="tgl_srt_msk" name="tgl_srt_msk"><br>
+
+      <label>Nama Instansi :</label>
+      <input style="margin-left: 7.21em" type="text" id="nama_instansi_surat_masuk" name="nama_instansi_surat_masuk"><br>
+
+      <label>Disposisi :</label>
+      <input style="margin-left: 10.2em" type="text"><br>
+ 
+      <input style="margin-left: 32em; width: 50px;" type="submit" name="Submit" class="tombol_login" value="SAVE">
+ 
+      <br/>
+      <br/>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // untuk mendapatkan jwpopup
+var jwpopup = document.getElementById('jwpopupBox');
+
+// untuk mendapatkan link untuk membuka jwpopup
+var mpLink = document.getElementById("jwpopupLink");
+
+// untuk mendapatkan aksi elemen close
+var close = document.getElementsByClassName("close")[0];
+
+// membuka jwpopup ketika link di klik
+mpLink.onclick = function() {
+    jwpopup.style.display = "block";
+}
+
+// membuka jwpopup ketika elemen di klik
+close.onclick = function() {
+    jwpopup.style.display = "none";
+}
+
+// membuka jwpopup ketika user melakukan klik diluar area popup
+window.onclick = function(event) {
+    if (event.target == jwpopup) {
+        jwpopup.style.display = "none";
+    }
+}
+</script>
+
+
+
+  

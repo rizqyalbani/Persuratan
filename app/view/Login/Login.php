@@ -112,7 +112,7 @@
 				<div class="form-border"></div>
 				<a href="#"><legend id="forgot-pass">Forgot password?</legend></a>
 				<button id="submit-btn" type="submit" name="submit" value="LOGIN">LOGIN</button>
-				<a href="register.html" id="signup">Don't have account yet?</a>
+				<a href="<?php echo BASE_URL ?>Register/register.php" id="signup">Don't have account yet?</a>
 	  		</form>
 		</div>
  	</div>
