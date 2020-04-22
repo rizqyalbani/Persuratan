@@ -155,11 +155,15 @@
         public function updateDataSuratKeluar($id){
             if ( isset($_POST) && isset($_POST['submit']) ) {
                 if ($this->model("suratKeluarModel")->updateSuratKeluar($id) > 0) {
-                    
-                    header("Location: " . BASE_URL . "adminDisposisiKeluar/addDataSuratKeluar" );
+                    // print_r($_POST);
+                    echo "<script>alert('Success to Update')</script>";
+                    $id_surat = $_POST['id_srt_klr'];
+                    $this->updateSuratKeluar($id_surat);
                 }
                 else{
-                    header("Location: " . BASE_URL . "adminDisposisiKeluar/addDataSuratKeluar" );
+                    echo "<script>alert('Success to Update')</script>";
+                    $id_surat = $_POST['id_srt_klr'];
+                    $this->updateSuratKeluar($id_surat);
                 }
             }
         }

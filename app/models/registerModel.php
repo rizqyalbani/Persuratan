@@ -14,19 +14,21 @@ class registerModel
    	public function register($data)
     {
         $d = $data['username'];
-        $b = "SELECT * FROM $this->tb WHERE $nama = $d";
+        $b = "SELECT * FROM $this->tb WHERE nama = $d";
         if($b == true ){
             var_dump($d);
         }
-        $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
-        $this->db->query($query);
-
-        $this->db->bind('id_role', $data['id_role']);
-        $this->db->bind('nip', $data['nip']);
-        $this->db->bind('nama', $data['username']);
-        $this->db->bind('password', $data['password']);
-        $this->db->execute();
-        return $this->db->rowCount();
+        else{
+            $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
+            $this->db->query($query);
+    
+            $this->db->bind('id_role', $data['id_role']);
+            $this->db->bind('nip', $data['nip']);
+            $this->db->bind('nama', $data['username']);
+            $this->db->bind('password', $data['password']);
+            $this->db->execute();
+            return $this->db->rowCount();
+        }
 
         var_dump($data);
     }
@@ -38,10 +40,12 @@ class registerModel
     }
 
     public function validateRegister($data){
-        $query = "SELECT * FROM $this->tb WHERE $name = $data[username] ";
-        print_r($data);
+        $query = "SELECT * FROM $this->tb WHERE nama = :nama ";
+        $this->db->query($query);
+        $this->db->bind('bind', $data['username']);
+        return $this->db->allResult();
+        
         // $this->db->query($query);
-        // return $this->db->allResult();
     }
 
     public function deleteRegister($id){

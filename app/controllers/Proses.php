@@ -9,6 +9,10 @@ class Proses extends mainController
 
 	public function register()
 	{
+		$validate = $this->model('registerModel')->validateRegister();
+		if (!empty($validate)) {
+			//keluar
+		}
 		
 		$add = $this->model('registerModel')->register($_POST);
 		

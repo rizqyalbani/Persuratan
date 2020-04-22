@@ -67,17 +67,24 @@
             return $this->db->rowCount();
         }
 
-        public function updateSuratMasuk($id){
-            $updateSuratMasuk = "UPDATE $this->table SET lampiran_tanggal_masuk = : lampiran_tanggal_masuk, alamat_pengirim = :alamat_pengirim, tanggal_surat_masuk = :tanggal_surat_masuk, nomor_surat_masuk = :nomor_surat_masuk, perihal_surat_masuk = :perihal_surat_masuk, instansi_surat_masuk = :instansi_surat_masuk where id_surat_masuk = :id";
+        public function updateSuratMasuk(){
+            // print_r($_POST);
+            $id = $_POST['id_surat_masuk'];
+            $updateSuratMasuk = "UPDATE $this->table SET lampiran_surat_masuk = :lampiran_surat_masuk, 
+            alamat_pengirim = :alamat_pengirim, 
+            tanggal_surat_masuk = :tanggal_surat_masuk, 
+            nomor_surat_masuk = :nomor_surat_masuk, 
+            perihal_surat_masuk = :perihal_surat_masuk, 
+            nama_instansi_surat_masuk = :nama_instansi_surat_masuk WHERE id_surat_masuk = :id";
 
             $this->db->query($updateSuratMasuk);
-            $this->db->bind(':id', $id );
-            $this->db->bind(':lampiran_tanggal_masuk', $_POST['lampiran_tanggal_masuk'] );
-            $this->db->bind(': alamat_pengirim', $_POST[' alamat_pengirim'] );
-            $this->db->bind(':tanggal_surat_masuk', $_POST['tanggal_surat_masuk'] );
-            $this->db->bind(':nomor_surat_masuk', $_POST['nomor_surat_masuk'] );
-            $this->db->bind(':perihal_surat_masuk', $_POST['perihal_surat_masuk'] );
-            $this->db->bind(':instansi_surat_masuk', $_POST['instansi_surat_masuk'] );
+            $this->db->bind('id', $id );
+            $this->db->bind('lampiran_surat_masuk', $_POST['lampiran_surat_masuk'] );
+            $this->db->bind('alamat_pengirim', $_POST['alamat_pengirim'] );
+            $this->db->bind('tanggal_surat_masuk', $_POST['tanggal_surat_masuk'] );
+            $this->db->bind('nomor_surat_masuk', $_POST['nomor_surat_masuk'] );
+            $this->db->bind('perihal_surat_masuk', $_POST['perihal_surat_masuk'] );
+            $this->db->bind('nama_instansi_surat_masuk', $_POST['nama_instansi_surat_masuk'] );
             $this->db->execute();
             //rowCount dipake buat nunjukkin berapa baris yg kena efek dari query, biasanya buat DELETE, INSERT, UPDATE
             return $this->db->rowCount();
