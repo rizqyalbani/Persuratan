@@ -65,9 +65,23 @@
             cursor: pointer;
             color: white;
             font-family: "Raleway SemiBold", sans-serif;
-            height: 42px;
+            height: 40px;
             margin: 0 auto;
-            margin-top: 30px;
+            margin-top: 20px;
+            transition: 0.25s;
+            width: 200px;
+        }
+        #submit-btn1 {
+            background:#4682B4;
+            border: none;
+            border-radius: 21px;
+            box-shadow: 0px 1px 8px #000000;
+            cursor: pointer;
+            color: white;
+            font-family: "Raleway SemiBold", sans-serif;
+            height: 40px;
+            margin: 0 auto;
+            margin-top: 10px;
             transition: 0.25s;
             width: 200px;
         }
@@ -83,7 +97,7 @@
         </div>
         
 	  		<form method="post" class="form" action="<?= BASE_URL; ?>proses/register">
-	  			<label for="user-email" style="padding-top:13px">&nbsp;Username</label>
+	  			<label for="user-email" style="padding-top:0px">&nbsp;Username</label>
 				<input
 				   id="user-email"
 				   class="form-content"
@@ -93,7 +107,7 @@
            required />
            
 				<div class="form-border"></div>
-				<label for="user-password" style="padding-top:22px">&nbsp;Password</label>
+				<label for="user-password" style="padding-top:15px">&nbsp;Password</label>
 				<input
 				   id="user-password"
 				   class="form-content"
@@ -102,7 +116,7 @@
            required />
           
         <div class="form-border"></div>
-        <label for="nip" style="padding-top:22px"> nip</label>
+        <label for="nip" style="padding-top:15px"> nip</label>
         <input type="number" name="nip" class="form-content">
 				<!-- <label for="nip" style="padding-top:22px">nip</label>
 				<input
@@ -115,6 +129,7 @@
 
         <input type="hidden" value ="2" name="id_role">
 				<button id="submit-btn" type="submit" name="submit" value="LOGIN">SUBMIT</button>
+        <button id="submit-btn1" type="submit" name="submit" value="LOGIN">BACK</button>
 	  		</form>
 		</div>
  	</div>
