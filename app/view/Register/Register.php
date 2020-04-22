@@ -32,8 +32,8 @@
         #card-title {
               font-family: "Raleway Thin", sans-serif;
               letter-spacing: 4px;
-              padding-bottom: 23px;
-              padding-top: 13px;
+              padding-bottom: 10px;
+              padding-top: 10px;
               text-align: center;
               color: #4682B4;
         }
@@ -55,7 +55,7 @@
             background: white;
             border: none;
             outline: none;
-            padding-top: 14px;
+            padding-top: 10px;
         }
         #submit-btn {
             background:#4682B4;
@@ -67,7 +67,7 @@
             font-family: "Raleway SemiBold", sans-serif;
             height: 40px;
             margin: 0 auto;
-            margin-top: 20px;
+            margin-top: 50px;
             transition: 0.25s;
             width: 200px;
         }
@@ -81,7 +81,7 @@
             font-family: "Raleway SemiBold", sans-serif;
             /* height: 20px; */
             margin: 0 auto;
-            margin-top: 10px;
+            margin-top: 20px;
             transition: 0.25s;
             width: 200px;
             text-align: center;
@@ -96,40 +96,40 @@
     <img src="<?php echo BASE_URL?>asset/register.png">
 
     <div id="card">
- 		<div id="card-content">
-	  		<div id="card-title">
-		    	<h2>Register</h2>
+    <div id="card-content">
+        <div id="card-title">
+          <h2>Register</h2>
         </div>
          <!-- <p>ksl;fkasjlf</p> -->
-	  		<form method="post" class="form" action="<?= BASE_URL; ?>proses/register">
-	  			<label for="user-email" style="padding-top:0px">&nbsp;Username</label>
-				<input
-				   id="user-email"
-				   class="form-content"
-				   type="text"
-				   name="username"
-				   autocomplete="on"
+        <form method="post" class="form" action="<?= BASE_URL; ?>proses/register">
+          <label for="user-email" style="padding-top:0px">&nbsp;Username</label>
+        <input
+           id="user-email"
+           class="form-content"
+           type="text"
+           name="username"
+           autocomplete="on"
            required />
            
-				<div class="form-border"></div>
-				<label for="user-password" style="padding-top:15px">&nbsp;Password</label>
-				<input
-				   id="user-password"
-				   class="form-content"
-				   type="password"
-				   name="password"
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top:10px">&nbsp;Password</label>
+        <input
+           id="user-password"
+           class="form-content"
+           type="password"
+           name="password"
            required />
           
         <div class="form-border"></div>
-        <label for="nip" style="padding-top:15px"> nip</label>
+        <label for="nip" style="padding-top:10px"> nip</label>
         <input type="number" name="nip" class="form-content">
-				<!-- <label for="nip" style="padding-top:22px">nip</label>
-				<input
-				   id="user-password"
-				   class="form-content"
-				   type="password"
-				   name="password"
-				   required /> -->
+        <!-- <label for="nip" style="padding-top:22px">nip</label>
+        <input
+           id="user-password"
+           class="form-content"
+           type="password"
+           name="password"
+           required /> -->
         <div class="form-border"></div>
         <!-- <p>Username Already exist</p> -->
         <?php
@@ -139,11 +139,11 @@
         ?>
 
         <input type="hidden" value ="2" name="id_role">
-				<button id="submit-btn" type="submit" name="submit" value="LOGIN">SUBMIT</button>
+        <button id="submit-btn" type="submit" name="submit" value="LOGIN">SUBMIT</button>
         <a href="<?=BASE_URL?>" id="submit-btn1" type="submit" name="submit" value="LOGIN">BACK</a>
-	  		</form>
-		</div>
- 	</div>
+        </form>
+    </div>
+  </div>
 
   
 </body>
