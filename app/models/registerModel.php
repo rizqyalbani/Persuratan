@@ -13,6 +13,11 @@ class registerModel
 
    	public function register($data)
     {
+        $d = $data['username'];
+        $b = "SELECT * FROM $this->tb WHERE $nama = $d";
+        if($b == true ){
+            var_dump($d);
+        }
         $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
         $this->db->query($query);
 
@@ -32,11 +37,18 @@ class registerModel
         return $this->db->allResult();
     }
 
+    public function validateRegister($data){
+        $query = "SELECT * FROM $this->tb WHERE $name = $data[username] ";
+        print_r($data);
+        // $this->db->query($query);
+        // return $this->db->allResult();
+    }
+
     public function deleteRegister($id){
         $query = "DELETE FROM $this->tb WHERE id_user = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
-        $this->db->execute();
+        $this->db->execute(); 
         return $this->db->rowCount();
     }
 
