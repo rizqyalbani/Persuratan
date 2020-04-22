@@ -71,7 +71,7 @@
        </tr>
      <script>
       function konfirmasi(){
-         var tanya = confirm("Apakah Anda Yakin Menghapus Data Ini ?");
+         var tanya = confirm("Apakah Anda Akan Menghapus Data Ini ?");
  
          if(tanya === true) {
             pesan = "";

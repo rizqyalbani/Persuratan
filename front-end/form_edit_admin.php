@@ -34,7 +34,7 @@
 <form>
 <input type="text" name="field1" placeholder="NIP"/>
 <input type="text" name="field2" placeholder="Username"/>
-<input type="TEXT" name="field2" placeholder="Password"/>
+<input type="text" name="field2" placeholder="Password"/>
 <input type="submit" value="SAVE"/>
 </form>
 </div>
