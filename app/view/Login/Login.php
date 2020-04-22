@@ -110,6 +110,13 @@
 				   name="password"
 				   required />
 				<div class="form-border"></div>
+
+				<?php
+					// print_R($data);
+					if (!empty($data['valid'])) {
+						echo $data['valid'];
+					}
+				?>
 				<a href="#"><legend id="forgot-pass">Forgot password?</legend></a>
 				<button id="submit-btn" type="submit" name="submit" value="LOGIN">LOGIN</button>
 				<a href="<?php echo BASE_URL ?>Register/register.php" id="signup">Don't have account yet?</a>

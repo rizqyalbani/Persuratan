@@ -11,6 +11,6 @@
         <li>nama : <?=$getData['nama']?> </li>
         <li>nip : <?=$getData['nip']?> </li>
         <li>pass : <?=$getData['password']?></li>
-        <li>  <a href="<?=BASE_URL?>user/deleteUser/<?=$getData['id_user']?>">Delete</a></li>
+        <li>  <a href="<?=BASE_URL?>admin/deleteUser/<?=$getData['id_user']?>">Delete</a></li>
     </ul>
     <?php endforeach ?>

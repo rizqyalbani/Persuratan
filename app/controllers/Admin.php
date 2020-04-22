@@ -340,8 +340,9 @@
             $data['title'] = 'Delete User';
 
             if ($this->model('User_model')->deleteUsr($id) > 0) {
+                echo "halo";
 
-                $this->showUser();
+                header("Location: " . BASE_URL . 'admin/showUser');
 
             }
         }

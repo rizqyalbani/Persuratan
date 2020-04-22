@@ -25,5 +25,9 @@
             }
         //end of function static
         }
+
+        public static function setNotif($pesan){
+            echo " <p style='color:red;' >$pesan</p> ";
+        }
     }
 ?>
