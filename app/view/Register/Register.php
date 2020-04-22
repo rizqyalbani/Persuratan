@@ -79,11 +79,16 @@
             cursor: pointer;
             color: white;
             font-family: "Raleway SemiBold", sans-serif;
-            height: 40px;
+            /* height: 20px; */
             margin: 0 auto;
             margin-top: 10px;
             transition: 0.25s;
             width: 200px;
+            text-align: center;
+            padding: .7rem 0;
+            font-size: .9em;
+            text-decoration: none;
+            display: inline-block;
         }
     </style>
   </head>
@@ -95,7 +100,7 @@
 	  		<div id="card-title">
 		    	<h2>Register</h2>
         </div>
-        
+         <!-- <p>ksl;fkasjlf</p> -->
 	  		<form method="post" class="form" action="<?= BASE_URL; ?>proses/register">
 	  			<label for="user-email" style="padding-top:0px">&nbsp;Username</label>
 				<input
@@ -126,10 +131,16 @@
 				   name="password"
 				   required /> -->
         <div class="form-border"></div>
+        <!-- <p>Username Already exist</p> -->
+        <?php
+          if ( !empty($data['notif']) ) {
+            echo $data['notif'];
+          }
+        ?>
 
         <input type="hidden" value ="2" name="id_role">
 				<button id="submit-btn" type="submit" name="submit" value="LOGIN">SUBMIT</button>
-        <button id="submit-btn1" type="submit" name="submit" value="LOGIN">BACK</button>
+        <a href="<?=BASE_URL?>" id="submit-btn1" type="submit" name="submit" value="LOGIN">BACK</a>
 	  		</form>
 		</div>
  	</div>

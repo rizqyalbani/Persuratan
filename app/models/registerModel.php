@@ -39,10 +39,12 @@ class registerModel
         return $this->db->allResult();
     }
 
-    public function validateRegister($data){
+    public function validateRegister(){
+        $data = $_POST;
+        // print_r($data);
         $query = "SELECT * FROM $this->tb WHERE nama = :nama ";
         $this->db->query($query);
-        $this->db->bind('bind', $data['username']);
+        $this->db->bind('nama', $data['username']);
         return $this->db->allResult();
         
         // $this->db->query($query);
