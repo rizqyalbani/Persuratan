@@ -377,13 +377,19 @@
         
         }
         
-        public function updateDataSuratMasuk($id){
+        public function updateDataSuratMasuk(){
             if(isset($_POST)){
-                if ($this->model("suratMasukModel")->updateSuratMasuk($id) > 0 ) {
-                    $this->updatesuratmasuk($_POST["id_surat_masuk"]);
+                if ($this->model("suratMasukModel")->updateSuratMasuk() > 0 ) {
+                    echo "<script>alert('Success to Update')</script>";
+                    $id_surat = $_POST['id_surat_masuk'];
+                    $this->updateSuratMasuk($id_surat);
+                    // header("Location: " . BASE_URL . "admin/addDataSuratMasuk");
+                    // echo "berhasil";
                 }else{
-                    $notif = "<script>alert('failed to update')</script>";
-                    $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
+                    echo "<script>alert('Failed to update')</script>";
+                    $id_surat = $_POST['id_surat_masuk'];
+                    $this->updateSuratMasuk($id_surat);
+                    // $this->showFailedUpdate($notif, "registerModel", "admin/showRegisterAdmin");
         
         
                 }

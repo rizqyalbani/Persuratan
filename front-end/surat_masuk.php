@@ -140,9 +140,11 @@
  
       <br/>
       <br/>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
+
 <script type="text/javascript">
   // untuk mendapatkan jwpopup
 var jwpopup = document.getElementById('jwpopupBox');

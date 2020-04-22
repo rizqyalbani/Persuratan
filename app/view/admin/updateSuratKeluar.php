@@ -1,8 +1,8 @@
-<h1>Send Surat Masuk</h1>
-<form action="<?php echo BASE_URL?>/adminDisposisiKeluar/updateDataSuratKeluar/<?=$data['surat']['id_surat_keluar']?>" method="POST">
+<h1>Update Surat Keluar</h1>
+<form action="<?php echo BASE_URL?>adminDisposisiKeluar/updateDataSuratKeluar/<?=$data['surat']['id_surat_keluar']?>" method="POST">
     <div>
         <label for="nmr_srt_klr">Nomor surat keluar</label>
-        <input type="hidden" value="<?= $data['surat']['id_surat_keluar'] ?>" id="nmr_srt_klr" name="nmr_srt_klr" >
+        <input type="hidden" value="<?= $data['surat']['id_surat_keluar'] ?>" id="nmr_srt_klr" name="id_srt_klr" >
         <input type="text" value="<?= $data['surat']['nomor_surat_keluar'] ?>" id="nmr_srt_klr" name="nmr_srt_klr" >
     </div>
     <br>

@@ -13,15 +13,22 @@ class registerModel
 
    	public function register($data)
     {
-        $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
-        $this->db->query($query);
-
-        $this->db->bind('id_role', $data['id_role']);
-        $this->db->bind('nip', $data['nip']);
-        $this->db->bind('nama', $data['username']);
-        $this->db->bind('password', $data['password']);
-        $this->db->execute();
-        return $this->db->rowCount();
+        $d = $data['username'];
+        $b = "SELECT * FROM $this->tb WHERE nama = $d";
+        if($b == true ){
+            var_dump($d);
+        }
+        else{
+            $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
+            $this->db->query($query);
+    
+            $this->db->bind('id_role', $data['id_role']);
+            $this->db->bind('nip', $data['nip']);
+            $this->db->bind('nama', $data['username']);
+            $this->db->bind('password', $data['password']);
+            $this->db->execute();
+            return $this->db->rowCount();
+        }
 
         var_dump($data);
     }
@@ -32,11 +39,20 @@ class registerModel
         return $this->db->allResult();
     }
 
+    public function validateRegister($data){
+        $query = "SELECT * FROM $this->tb WHERE nama = :nama ";
+        $this->db->query($query);
+        $this->db->bind('bind', $data['username']);
+        return $this->db->allResult();
+        
+        // $this->db->query($query);
+    }
+
     public function deleteRegister($id){
         $query = "DELETE FROM $this->tb WHERE id_user = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
-        $this->db->execute();
+        $this->db->execute(); 
         return $this->db->rowCount();
     }
 
