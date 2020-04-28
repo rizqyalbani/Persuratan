@@ -110,7 +110,6 @@
 				   name="password"
 				   required />
 				<div class="form-border"></div>
-
 				<?php
 					// print_R($data);
 					if (!empty($data['valid'])) {

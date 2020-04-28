@@ -48,7 +48,7 @@ class loginModel extends mainController
                             // var_dump("DATA USER");die;
                         }
                     }else{ //end if cek password
-                        $data['valid'] = "<p style='color:red;' >Wrong Password!</p>";
+                        $data['valid'] = "<p class='my-notif' style='color:red;' >Wrong Password!</p>";
                         $this->view("Login/Login", $data);
                     }
                 }else{ //end if password
@@ -56,7 +56,7 @@ class loginModel extends mainController
                 }
             }else{ //end if data_user
                 // var_dump("Wrong Username!");die;
-                $data['valid'] = "<p style='color:red;' >Wrong Username!</p>";
+                $data['valid'] = "<span style='color:red; margin:0' >Wrong Username!</span>";
                 $this->view("Login/Login", $data);
             }
         

@@ -13,22 +13,15 @@ class registerModel
 
    	public function register($data)
     {
-        $d = $data['username'];
-        $b = "SELECT * FROM $this->tb WHERE nama = $d";
-        if($b == true ){
-            var_dump($d);
-        }
-        else{
-            $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
-            $this->db->query($query);
-    
-            $this->db->bind('id_role', $data['id_role']);
-            $this->db->bind('nip', $data['nip']);
-            $this->db->bind('nama', $data['username']);
-            $this->db->bind('password', $data['password']);
-            $this->db->execute();
-            return $this->db->rowCount();
-        }
+        $query ="INSERT INTO $this->tb VALUES ('', :id_role, :nip, :nama, :password)";
+        $this->db->query($query);
+
+        $this->db->bind('id_role', $data['id_role']);
+        $this->db->bind('nip', $data['nip']);
+        $this->db->bind('nama', $data['username']);
+        $this->db->bind('password', $data['password']);
+        $this->db->execute();
+        return $this->db->rowCount();
 
         var_dump($data);
     }
@@ -61,11 +54,11 @@ class registerModel
     public function updateRegister(){
         // query buat get password
         $id = $_POST['id'];
-        // $query = "SELECT * FROM $this->tb WHERE id_user = :id";
-        // $this->db->query($query);
-        // $this->db->bind('id', $id);
-        // $this->db->execute();
-        // $pass = $this->db->singleResult()['password'];
+        $query = "SELECT * FROM $this->tb WHERE id_user = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        $pass = $this->db->singleResult()['password'];
         // print_r($pass);
 
         if($_POST['password'] == ""){
