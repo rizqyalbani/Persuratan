@@ -79,7 +79,7 @@
 	    font-family: "Raleway SemiBold", sans-serif;
 	    height: 42px;
 	    margin: 0 auto;
-	    margin-top: 80px;
+	    margin-top: 50px;
 	    transition: 0.25s;
 	    width: 200px;
 	}

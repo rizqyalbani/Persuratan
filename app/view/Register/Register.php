@@ -67,7 +67,7 @@
             font-family: "Raleway SemiBold", sans-serif;
             height: 40px;
             margin: 0 auto;
-            margin-top: 50px;
+            margin-top: 20px;
             transition: 0.25s;
             width: 200px;
         }
@@ -81,7 +81,7 @@
             font-family: "Raleway SemiBold", sans-serif;
             /* height: 20px; */
             margin: 0 auto;
-            margin-top: 20px;
+            margin-top: 10px;
             transition: 0.25s;
             width: 200px;
             text-align: center;
