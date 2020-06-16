@@ -22,6 +22,7 @@
             try{
                 // new PDO($dsn, $user, $pass)
                 $this->dbh = new PDO($dsn, $this->user, $this->pass, $option);
+                // print_r($this->dbh);
             }
             //kalo error tangkap errornya simpan di variable e lalu tampilkan pesannya
             catch(PDOException $e){

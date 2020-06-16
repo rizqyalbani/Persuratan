@@ -18,7 +18,7 @@ class loginModel extends mainController
             // var_dump($q);
             $this->db->query($q);
             $this->db->bind($verificator, $value);
-            return $this->db->singleResult();
+            return $this->db->single();
         }
     }
     public function login($data)
